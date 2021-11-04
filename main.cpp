@@ -36,6 +36,9 @@ int main(){
     cout << edificios.obtenerCantidad() << endl;
     edificios.mostrar();
 
+    Edificio* valor = edificios.obtenerDato(2);
+    valor->mostrar();
+
 
     return 0;
 }
