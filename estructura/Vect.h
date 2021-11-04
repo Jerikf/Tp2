@@ -22,6 +22,7 @@ class Vect
         int agregar(T*);
         int obtenerCantidad();
         void mostrar();
+		T* obtenerDato(int);
 
 };
 
@@ -55,12 +56,12 @@ int Vect<T>::agregar(T* dato){
 	//agrego el nuevo dato 
 	nuevoVect[this->cantidad] = dato;
 
-	//libero el contenedor edificios , sus valores no! porque aún los conservo! en el nuevo 
+	//libero el contenedor datos , sus valores no! porque aún los conservo! en el nuevo 
 	if(this->cantidad != 0){
 		delete[] this->datos;
 	}
 
-	//reasigno el nuevo vector y aumento la cantidad de edificios que tengo
+	//reasigno el nuevo vector y aumento la cantidad de datos que tengo
 	this->datos = nuevoVect;
 	this->cantidad++;
 	return EXITO;
@@ -76,6 +77,11 @@ void Vect<T>::mostrar(){
 template<typename T>
 int Vect<T>::obtenerCantidad(){
 	return this->cantidad;
+}
+
+template<typename T>
+T* Vect<T>::obtenerDato(int posicion){
+	return this->datos[posicion];
 }
 
 
