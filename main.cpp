@@ -1,3 +1,4 @@
+#include "./entidades/firmas/Material.h"
 #include "./entidades/firmas/Edificio.h"
 #include "./entidades/firmas/Escuela.h"
 #include "./entidades/firmas/Aserradero.h"
@@ -38,6 +39,24 @@ int main(){
 
     Edificio* valor = edificios.obtenerDato(2);
     valor->mostrar();
+
+    Vect<Material> materiales;
+    Material* material1 = new Material("Piedra",5);
+    Material* material2 = new Material("Metal",3);
+    Material* material3 = new Material("Madera",7);
+
+    materiales.agregar(material1);
+    materiales.agregar(material2);
+    materiales.agregar(material3);
+
+    cout << "La cantidad es : " << materiales.obtenerCantidad() << endl;
+    materiales.mostrar();
+    materiales.obtenerDato(1)->mostrar();
+
+
+
+
+
 
 
     return 0;
