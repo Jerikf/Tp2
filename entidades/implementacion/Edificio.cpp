@@ -16,3 +16,26 @@ Edificio::Edificio(string nombre, int cantPiedra, int cantMadera, int cantMetal,
 
 Edificio::~Edificio(){}
 
+
+string Edificio::getNombre(){
+    return this->nombre;
+}
+
+int Edificio::getCantPiedra(){
+    return this->cantPiedra;
+}
+
+int Edificio::getCantMadera(){
+    return this->cantMadera;
+}
+
+int Edificio::getCantMetal(){
+    return this->cantMetal;
+}
+
+int Edificio::getMaxCantPermitidos(){
+    return this->maxCantPermitidos;
+}
+
+
+

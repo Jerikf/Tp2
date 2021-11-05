@@ -19,6 +19,12 @@ class Edificio
         //Edificio();
         virtual ~Edificio();
         virtual void mostrar()=0;
+        string getNombre();
+        int getCantPiedra();
+        int getCantMadera();
+        int getCantMetal();
+        int getMaxCantPermitidos();
+
 };
 
 #endif //EDIFICIO_H
