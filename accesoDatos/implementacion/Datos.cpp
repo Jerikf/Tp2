@@ -15,6 +15,8 @@ Datos::Datos(string nombreArchivoEdificios, string nombreArchivoMateriales){
     this->nombreArchivoMateriales = nombreArchivoMateriales;
 }
 
+Datos::~Datos(){}
+
 void Datos:: cargarDatosEdificios(Vect<Edificio>* edificios){
 
     fstream archivoEdificios(this->nombreArchivoEdificios, ios::in);
@@ -85,5 +87,10 @@ void Datos:: cargarDatosMateriales(Vect<Material>* materiales){
 	archivoMateriales.close();
 }
 
+void Datos:: guardarDatosMateriales(Vect<Material>* materiales){
+	ofstream archivoMateriales(this->nombreArchivoMateriales);
+	for(int pos = 0; pos < materiales->obtenerCantidad(); pos++){
+		archivoMateriales << materiales->obtenerDato(pos)->getNombre() << ' ' << materiales->obtenerDato(pos)->getCantidad() << '\n';
+	}
 
-Datos::~Datos(){}
+}

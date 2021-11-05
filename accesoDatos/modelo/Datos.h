@@ -24,8 +24,11 @@ class Datos
     public:
         Datos(string,string);
         ~Datos();
+
         void cargarDatosEdificios(Vect<Edificio>* datos);
         void cargarDatosMateriales(Vect<Material>* materiales);
+
+        void guardarDatosMateriales(Vect<Material>* materiales);
         
 };
 
