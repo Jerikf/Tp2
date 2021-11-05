@@ -68,8 +68,12 @@ int main(){
     Datos datos("edificios.txt","materiales.txt");
     Vect<Material> materiales;
     datos.cargarDatosMateriales(&materiales);
+    Material* nuevoMaterial = new Material("oro", 28);
+    materiales.agregar(nuevoMaterial);
+    cout << "\n\n" << endl;
     materiales.mostrar();
-
+    cout << "\n\n" << endl;
+    datos.guardarDatosMateriales(&materiales);
 
 
 
