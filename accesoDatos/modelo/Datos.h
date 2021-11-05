@@ -29,6 +29,7 @@ class Datos
         void cargarDatosMateriales(Vect<Material>* materiales);
 
         void guardarDatosMateriales(Vect<Material>* materiales);
+        void gurdarDatosEdificios(Vect<Edificio>* edificios);
         
 };
 

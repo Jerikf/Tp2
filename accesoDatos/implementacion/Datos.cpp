@@ -94,3 +94,14 @@ void Datos:: guardarDatosMateriales(Vect<Material>* materiales){
 	}
 
 }
+
+void Datos::gurdarDatosEdificios(Vect<Edificio>* edificios){
+	ofstream archivoEdificios(nombreArchivoEdificios);
+	for(int pos = 0; pos < edificios->obtenerCantidad(); pos++){
+		archivoEdificios << edificios->obtenerDato(pos)->getNombre() << ' '
+										 << edificios->obtenerDato(pos)->getCantPiedra() << ' '
+										 << edificios->obtenerDato(pos)->getCantMadera() << ' '
+										 << edificios->obtenerDato(pos)->getCantMetal() << ' '
+										 << edificios->obtenerDato(pos)->getMaxCantPermitidos() << '\n';
+	}
+}
