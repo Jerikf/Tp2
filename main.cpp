@@ -4,6 +4,7 @@
 #include "./entidades/firmas/Aserradero.h"
 #include "./entidades/firmas/Mina.h"
 #include "./estructura/Vect.h"
+#include "./accesoDatos/modelo/Datos.h"
 #include <iostream>
 
 int main(){
@@ -15,7 +16,7 @@ int main(){
     delete ptr;*/
 
     //--------------------------------- otra prueba------------------------
-    Vect<Edificio> edificios;
+    /*Vect<Edificio> edificios;
     Edificio* escuela = new Escuela("san josé",1,1,1,1);
     Edificio* escuela2 = new Escuela("lavalle",2,2,2,2);
     Edificio* edificio;
@@ -51,7 +52,16 @@ int main(){
 
     cout << "La cantidad es : " << materiales.obtenerCantidad() << endl;
     materiales.mostrar();
-    materiales.obtenerDato(1)->mostrar();
+    materiales.obtenerDato(1)->mostrar();*/
+
+    //---------------------Probando el cargado de los datos del archivo
+    Datos datos("edificios.txt","materiales.txt");
+    Vect<Edificio> edificios2;
+    cout << "\n\n\n" << endl;
+    datos.cargarDatosEdificios(&edificios2);
+    edificios2.mostrar();
+
+
 
 
 
