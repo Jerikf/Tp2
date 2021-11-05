@@ -12,3 +12,11 @@ Material::Material(string nombre, int cantidad){
 }
 
 Material::~Material(){}
+
+string Material::getNombre(){
+    return this->nombre;
+}
+
+int Material::getCantidad(){
+    return this->cantidad;
+}

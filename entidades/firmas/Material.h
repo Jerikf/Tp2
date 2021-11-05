@@ -13,6 +13,8 @@ class Material
         Material(string, int);
         ~Material();
         void mostrar();
+        string getNombre();
+        int getCantidad();
 };
 
 #endif //MATERIAL_H
