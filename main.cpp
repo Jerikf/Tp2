@@ -55,13 +55,20 @@ int main(){
     materiales.obtenerDato(1)->mostrar();*/
 
     //---------------------Probando el cargado de los datos del archivo
-    Datos datos("edificios.txt","materiales.txt");
+    
+    /*Datos datos("edificios.txt","materiales.txt");
     Vect<Edificio> edificios2;
     cout << "\n\n\n" << endl;
     datos.cargarDatosEdificios(&edificios2);
-    edificios2.mostrar();
+    edificios2.mostrar();*/
+    //------------------------------------------------------------
 
 
+    //---------------------Probando el cargado de los datos del archivo materiales
+    Datos datos("edificios.txt","materiales.txt");
+    Vect<Material> materiales;
+    datos.cargarDatosMateriales(&materiales);
+    materiales.mostrar();
 
 
 
