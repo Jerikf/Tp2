@@ -63,7 +63,27 @@ void Datos:: cargarDatosEdificios(Vect<Edificio>* edificios){
 	archivoEdificios.close();
 }
 
+void Datos:: cargarDatosMateriales(Vect<Material>* materiales){
+	fstream archivoMateriales(this->nombreArchivoMateriales, ios::in);
+	if(!archivoMateriales.is_open()){
+		cout << "NO SE ENCONTRÒ EL ARCHIVO " << this->nombreArchivoMateriales << endl;
+		archivoMateriales.open(this->nombreArchivoMateriales, ios::out);
+		archivoMateriales.close();
+		archivoMateriales.open(this->nombreArchivoMateriales, ios::in);
+	}
 
+	string nombre, cantMaterial;
+	Material* material;
+
+	while(archivoMateriales >> nombre){
+		archivoMateriales >> cantMaterial;
+
+		material = new Material(nombre,(int)stol(cantMaterial));
+		materiales->agregar(material);
+	}
+
+	archivoMateriales.close();
+}
 
 
 Datos::~Datos(){}
