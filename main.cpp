@@ -65,7 +65,7 @@ int main(){
 
 
     //---------------------Probando el cargado de los datos del archivo materiales
-    Datos datos("edificios.txt","materiales.txt");
+    /*Datos datos("edificios.txt","materiales.txt");
     Vect<Material> materiales;
     datos.cargarDatosMateriales(&materiales);
     Material* nuevoMaterial = new Material("oro", 28);
@@ -73,10 +73,25 @@ int main(){
     cout << "\n\n" << endl;
     materiales.mostrar();
     cout << "\n\n" << endl;
-    datos.guardarDatosMateriales(&materiales);
+    datos.guardarDatosMateriales(&materiales);*/
 
+     //------------------------------------------------------------
+     /*Edificio* edificio = new Escuela("san josé",1,2,3,4);
+     cout << edificio->getNombre() << endl;
+     cout << edificio->getCantPiedra() << endl;
+     cout << edificio->getCantMadera() << endl;
+     cout << edificio->getCantMetal() << endl;*/
 
-
+    //------------------------------------------------------------
+    
+    
+    Datos datos("edificios.txt", "materiales.txt");
+    Vect<Edificio> edificios;
+    datos.cargarDatosEdificios(&edificios);
+    Edificio* edificio = new Escuela("escuela", 1,2,3,4);
+    edificios.agregar(edificio);
+    datos.gurdarDatosEdificios(&edificios);
+    edificios.mostrar();
 
 
 
