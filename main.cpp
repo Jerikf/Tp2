@@ -192,11 +192,46 @@ int main(){
     mapa.mostrar();*/
 
     //------------Probaremos el cargado y el guardado de los datos del mapa----------------
+    /*
     Mapa* mapa = NULL;
     Datos datos("edificios.txt","materiales.txt","mapa.txt","ubicaciones.txt");
     datos.cargarDatosMapa(&mapa);
     mapa->mostrar();
     datos.guardarDatosMapa(mapa); //me tendría que dejar el archivo tal cuál
+    delete mapa;
+    */
+   //------------------------------------------------------------------------------------------
+
+   //------------Probaremos el cargado y el guardado de los datos de Ubicaciones----------------
+    
+    Mapa* mapa = NULL;
+    Datos datos("edificios.txt","materiales.txt","mapa.txt","ubicaciones.txt");
+    datos.cargarDatosMapa(&mapa);
+    
+
+    cout << " \n\n\n------------------" << endl;
+
+    Edificio* edificio1 = new Mina("mina", 200, 50, 140, 2);
+    Edificio* edificio2 = new PlantaElectrica("planta electrica", 100, 40, 220, 3);
+    Edificio* edificio3 = new Fabrica("fabrica", 10, 0, 500, 1);
+    Edificio* edificio4 = new Aserradero("aserradero", 40, 25, 100, 5);
+    Edificio* edificio5 = new Escuela("escuela", 45, 125, 140, 2);
+
+    Vect<Edificio> edificios;
+
+    edificios.agregar(edificio1);
+    edificios.agregar(edificio2);
+    edificios.agregar(edificio3);
+    edificios.agregar(edificio4);
+    edificios.agregar(edificio5);
+
+    
+
+    //recordar pasar por referencia sino se autodestruye al momento que se termina de ejecutar la funcion
+    datos.cargarDatosUbicaciones(mapa, &edificios);
+    mapa->mostrar();
+
+
     delete mapa;
 
 
