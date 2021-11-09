@@ -4,6 +4,7 @@
 #include "./entidades/firmas/Aserradero.h"
 #include "./entidades/firmas/Mina.h"
 #include "./estructura/Vect.h"
+#include "./entidades/firmas/Mapa.h"
 #include "./accesoDatos/modelo/Datos.h"
 #include "./entidades/firmas/Casillero.h"
 #include "./entidades/firmas/Transitable.h"
@@ -101,7 +102,7 @@ int main(){
 
     /* -------probe el uso de los casilleros instanciando los constructores con valores además del
     del método contruirEdificio que se redifine según sea el casillero---------*/
-    Vect<Casillero> casilleros;
+    /*Vect<Casillero> casilleros;
 
     Material* material1 = new Material("Piedra", 10);
     Material* material2 = new Material("Metal", 5);
@@ -141,7 +142,55 @@ int main(){
     }
     delete casillero6;
     delete casillero7;
-    delete edificio3; //llamo a este porque contruirEdificio te genera otro nueva instancia
+    delete edificio3; //llamo a este porque contruirEdificio te genera otro nueva instancia*/
+
+    //----------------PROBAR EL USO DEL MAPA--------------------
+    Mapa mapa(2,2);
+
+    Material* material1 = new Material("Piedra", 10);
+    Material* material2 = new Material("Metal", 5);
+
+    Edificio* edificio1 = new Escuela("Madre Admirable", 1,1,1,1);
+    Edificio* edificio2 = new Fabrica("Taller de Textil", 2,2,2,2);
+
+    Coordenada coordenada1(0,0);
+    Coordenada coordenada2(0,1);
+    Coordenada coordenada3(1,0);
+    Coordenada coordenada4(1,1);
+    Coordenada coordenada5(2,0);
+
+    //TODO --> cada casillero debe tener su propia coordenada reservada
+    // porque si le paso 1 reserva a 2 casilleros, al destruir habrà problemas
+
+    Casillero* casillero1 = new Transitable('M', material1);
+    Casillero* casillero2 = new Transitable('M', material2);
+    Casillero* casillero3 = new Construible('T', edificio1);
+    Casillero* casillero4 = new Construible('T', edificio2);
+    Casillero* casillero5 = new Inaccesible('L');
+
+    mapa.agregarCasillero(casillero1, coordenada1);
+    mapa.agregarCasillero(casillero2, coordenada2);
+    mapa.agregarCasillero(casillero3, coordenada3);
+    mapa.agregarCasillero(casillero4, coordenada4);
+    mapa.agregarCasillero(casillero5, coordenada5);
+
+    Coordenada coordenada(1,3);
+
+    Casillero* casillero = mapa.getCasillero(coordenada);
+    if(casillero){
+        casillero->mostrar();
+    }else{
+        cout << "ES NULO" << endl;
+    }
+
+
+    //TODO--> como no puedo agregar un casillero en la misma coordenada entonces no se autodestruye
+    // con el destructor del mapa, sino lo tengo que hacer manual
+    delete(casillero5);
+
+
+    mapa.mostrar();
+
 
 
     return 0;
