@@ -44,6 +44,7 @@ class Datos
         void guardarDatosMateriales(Vect<Material>* materiales);
         void gurdarDatosEdificios(Vect<Edificio>* edificios);
         void guardarDatosMapa(Mapa* mapa);
+        void guardarDatosUbicaciones(Mapa* mapa);
 
         
 

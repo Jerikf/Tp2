@@ -228,3 +228,20 @@ void Datos::guardarDatosMapa(Mapa* mapa){
         archivoMapa << '\n'; //Hago un salto de línea para generar la siguiente fila
     }
 }
+
+void Datos::guardarDatosUbicaciones(Mapa* mapa){
+    ofstream archivoUbicaciones(this->nombreArchivoUbicaciones);
+    Edificio* edificio = NULL;
+
+    for(int fila = 0; fila < mapa->getCantFilas(); fila++){
+        for(int col = 0; col < mapa->getCantColumnas(); col++){
+            Coordenada coordenada(fila,col);
+            edificio = mapa->getCasillero(coordenada)->getEdificio();
+            //Como Construible puede o no tener edificio si lo tiene se tiene que guardar
+            //NO me preocupo si es un Casillero Inaccesible o Transitable porque devolveran NULL se aplica bien el polimorfismo
+            if(edificio){
+                archivoUbicaciones << edificio->getNombre() << ' ' << '(' << coordenada.getFila() << ", " << coordenada.getColumna() << ")\n"; 
+            }
+        }
+    }
+}
