@@ -145,7 +145,7 @@ int main(){
     delete edificio3; //llamo a este porque contruirEdificio te genera otro nueva instancia*/
 
     //----------------PROBAR EL USO DEL MAPA--------------------
-    Mapa mapa(2,2);
+    /*Mapa mapa(2,2);
 
     Material* material1 = new Material("Piedra", 10);
     Material* material2 = new Material("Metal", 5);
@@ -189,7 +189,13 @@ int main(){
     delete(casillero5);
 
 
-    mapa.mostrar();
+    mapa.mostrar();*/
+
+    //------------Probaremos el cargado de datos del mapa----------------
+    Mapa* mapa = NULL;
+    Datos datos("edificios.txt","materiales.txt","mapa.txt","ubicaciones.txt");
+    datos.cargarDatosMapa(&mapa);
+    mapa->mostrar();
 
 
 
