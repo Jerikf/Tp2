@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include <string>
 
+#include "../../entidades/firmas/Coordenada.h"
 #include "../../estructura/Vect.h"
 #include "../../entidades/firmas/Mapa.h"
 #include "../../entidades/firmas/Edificio.h"
@@ -24,11 +25,12 @@ using namespace std;
 
 class Datos
 {
-    protected:
+    private:
         string nombreArchivoEdificios;
         string nombreArchivoMateriales;
         string nombreArchivoMapa;
         string nombreArchivoUbicaciones;
+        Coordenada extraerCoordenada(string,string);
         
     public:
         Datos(string,string,string, string);
@@ -37,6 +39,7 @@ class Datos
         void cargarDatosEdificios(Vect<Edificio>* datos);
         void cargarDatosMateriales(Vect<Material>* materiales);
         void cargarDatosMapa(Mapa** mapa);
+        void cargarDatosUbicaciones(Mapa* mapa, Vect<Edificio>*);
 
         void guardarDatosMateriales(Vect<Material>* materiales);
         void gurdarDatosEdificios(Vect<Edificio>* edificios);

@@ -133,6 +133,65 @@ void Datos::cargarDatosMapa(Mapa** mapa){
 	archivoMapa.close();
 }
 
+Coordenada Datos::extraerCoordenada(string ubicacion1, string ubicacion2){
+    Coordenada coordenada;
+    string filaAConvertir, columnaAConvertir;
+
+    //obtengo los datos numéricos(en string)
+    filaAConvertir = ubicacion1[1];
+    columnaAConvertir = ubicacion2[0];
+
+    //convierto los datos a int y los seteo a la coordenada
+    coordenada.setFila((int)stol(filaAConvertir));
+    coordenada.setColumna((int)stol(columnaAConvertir));
+    return coordenada;
+}
+
+void Datos::cargarDatosUbicaciones(Mapa* mapa, Vect<Edificio> *edificios){
+    fstream archivoUbicaciones(this->nombreArchivoUbicaciones, ios::in);
+	if(!archivoUbicaciones.is_open()){
+		cout << "NO SE ENCONTRÒ EL ARCHIVO " << this->nombreArchivoUbicaciones << endl;
+		archivoUbicaciones.open(this->nombreArchivoUbicaciones, ios::out);
+		archivoUbicaciones.close();
+		archivoUbicaciones.open(this->nombreArchivoUbicaciones, ios::in);
+	}
+
+    Edificio* edificio = NULL;
+
+    string nombre,complementoNombre;
+    string ubicacion1, ubicacion2;
+
+
+    while(archivoUbicaciones >> nombre){
+        if(nombre == PLANTA){
+            archivoUbicaciones >> complementoNombre;
+            nombre = nombre + " " + complementoNombre;
+        }
+        archivoUbicaciones >> ubicacion1;
+        archivoUbicaciones >> ubicacion2;
+        int pos = 0;
+        bool seEncontro = false;
+        //Busco si existe en el vect de edificios
+        while( !seEncontro && pos < edificios->obtenerCantidad()){
+            if(edificios->obtenerDato(pos)->getNombre() == nombre){
+                edificio = edificios->obtenerDato(pos);
+                seEncontro = true;
+            }
+            pos++;
+        }
+        //silo encontré construiré el edificio en dicho casillero(en caso de que la coordenada esté mal
+        //y sea de un casillero Inaccesible no habrá problemas porque construirEdificio lo redifinen
+        //todos los casilleros, responde al mensaje según sea su caso correspondiente)
+        if(seEncontro){
+            mapa->getCasillero(extraerCoordenada(ubicacion1,ubicacion2))->construirEdificio(edificio);
+            edificio = NULL;
+        }
+    }
+    archivoUbicaciones.close();
+    mapa->mostrar();
+
+}
+
 void Datos:: guardarDatosMateriales(Vect<Material>* materiales){
 	ofstream archivoMateriales(this->nombreArchivoMateriales);
 	for(int pos = 0; pos < materiales->obtenerCantidad(); pos++){
