@@ -152,4 +152,20 @@ void Datos::gurdarDatosEdificios(Vect<Edificio>* edificios){
 	}
 }
 
+void Datos::guardarDatosMapa(Mapa* mapa){
 
+    ofstream archivoMapa(this->nombreArchivoMapa);
+    archivoMapa << mapa->getCantFilas() << ' ' << mapa->getCantColumnas() << '\n';
+
+    for(int fila = 0; fila < mapa->getCantFilas(); fila++){
+        for(int col = 0; col < mapa->getCantColumnas(); col++){
+            Coordenada coordenada(fila,col);
+            if(col == mapa->getCantColumnas()- 1){
+                //Soluciona cuando llega al final de las columnas y no genere un espacio extra al final
+                archivoMapa << mapa->getCasillero(coordenada)->getTipo();
+            }else
+                archivoMapa << mapa->getCasillero(coordenada)->getTipo() << ' ';
+        }
+        archivoMapa << '\n'; //Hago un salto de línea para generar la siguiente fila
+    }
+}
