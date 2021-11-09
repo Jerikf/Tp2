@@ -230,6 +230,7 @@ int main(){
     //recordar pasar por referencia sino se autodestruye al momento que se termina de ejecutar la funcion
     datos.cargarDatosUbicaciones(mapa, &edificios);
     mapa->mostrar();
+    datos.guardarDatosUbicaciones(mapa);
 
 
     delete mapa;
