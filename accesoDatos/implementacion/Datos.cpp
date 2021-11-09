@@ -10,9 +10,15 @@ const string ESCUELA = "escuela";
 const string MINA = "mina";
 const string PLANTA = "planta";
 
-Datos::Datos(string nombreArchivoEdificios, string nombreArchivoMateriales){
+const char LAGO = 'L';
+const char TERRENO = 'T';
+const char CAMINO = 'C';
+
+Datos::Datos(string nombreArchivoEdificios, string nombreArchivoMateriales, string nombreArchivoMapa, string nombreArchivoUbicaciones){
     this->nombreArchivoEdificios = nombreArchivoEdificios;
     this->nombreArchivoMateriales = nombreArchivoMateriales;
+	this->nombreArchivoMapa = nombreArchivoMapa;
+	this->nombreArchivoUbicaciones = nombreArchivoUbicaciones;
 }
 
 Datos::~Datos(){}
@@ -87,6 +93,46 @@ void Datos:: cargarDatosMateriales(Vect<Material>* materiales){
 	archivoMateriales.close();
 }
 
+void Datos::cargarDatosMapa(Mapa** mapa){
+	fstream archivoMapa(this->nombreArchivoMapa, ios::in);
+	if(!archivoMapa.is_open()){
+		cout << "NO SE ENCONTRÒ EL ARCHIVO " << this->nombreArchivoMapa << endl;
+		archivoMapa.open(this->nombreArchivoMapa, ios::out);
+		archivoMapa.close();
+		archivoMapa.open(this->nombreArchivoMapa, ios::in);
+	}
+
+    string cantFilas, cantColumnas;
+    archivoMapa >> cantFilas;
+    archivoMapa >> cantColumnas;
+    *mapa = new Mapa((int)stol(cantFilas),(int)stol(cantColumnas));
+    char tipo;
+    Casillero* casillero;
+
+
+    for(int i = 0; i < (int)stol(cantFilas); i++){
+        for(int j = 0; j < (int)stol(cantColumnas); j++){
+            archivoMapa >> tipo;
+            Coordenada coordenada(i,j);
+
+            cout << tipo << " " ;
+            
+            if(tipo == CAMINO){
+                casillero = new Transitable(tipo);
+            }
+            else if(tipo == TERRENO){
+                casillero = new Construible(tipo);
+            }else if(tipo == LAGO){
+                casillero = new Inaccesible(tipo);
+            }
+            //agrego el casillero al mapa esto asumiendo que no vendrá un tipo que no fuera L-T-C
+            (*mapa)->agregarCasillero(casillero, coordenada);
+        }
+        cout << "\n";
+    }
+	archivoMapa.close();
+}
+
 void Datos:: guardarDatosMateriales(Vect<Material>* materiales){
 	ofstream archivoMateriales(this->nombreArchivoMateriales);
 	for(int pos = 0; pos < materiales->obtenerCantidad(); pos++){
@@ -105,3 +151,5 @@ void Datos::gurdarDatosEdificios(Vect<Edificio>* edificios){
 										 << edificios->obtenerDato(pos)->getMaxCantPermitidos() << '\n';
 	}
 }
+
+
