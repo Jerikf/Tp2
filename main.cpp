@@ -191,12 +191,13 @@ int main(){
 
     mapa.mostrar();*/
 
-    //------------Probaremos el cargado de datos del mapa----------------
+    //------------Probaremos el cargado y el guardado de los datos del mapa----------------
     Mapa* mapa = NULL;
     Datos datos("edificios.txt","materiales.txt","mapa.txt","ubicaciones.txt");
     datos.cargarDatosMapa(&mapa);
     mapa->mostrar();
-
+    datos.guardarDatosMapa(mapa); //me tendría que dejar el archivo tal cuál
+    delete mapa;
 
 
     return 0;
