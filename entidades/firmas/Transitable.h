@@ -16,7 +16,7 @@ class Transitable : public Casillero
         ~Transitable();
         Material* getMaterial();
         void setMaterial(Material*);
-        void construirEdificio(Edificio*);
+        int construirEdificio(Edificio*);
         Edificio* getEdificio();
         void mostrar();
 };

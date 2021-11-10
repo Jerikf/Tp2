@@ -16,7 +16,7 @@ class Construible : public Casillero
         Construible(char);
         ~Construible();
         void mostrar();
-        void construirEdificio(Edificio*);
+        int construirEdificio(Edificio*);
         Edificio* getEdificio();
         Material* getMaterial();
         

@@ -17,7 +17,7 @@ class Casillero
         Casillero();
         virtual ~Casillero();
         virtual void mostrar()=0;
-        virtual void construirEdificio(Edificio*)=0;
+        virtual int construirEdificio(Edificio*)=0;
         virtual Edificio* getEdificio()=0;
         virtual Material* getMaterial()=0;
         void mostrarTipo();

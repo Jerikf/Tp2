@@ -1,6 +1,9 @@
 #include "../firmas/Transitable.h"
 #include <iostream>
 
+const int ERROR = -1;
+
+
 Transitable::Transitable(){
     this->material = NULL;
 }
@@ -35,7 +38,10 @@ void Transitable::mostrar(){
     
 }
 
-void Transitable::construirEdificio(Edificio* edificio){}
+int Transitable::construirEdificio(Edificio* edificio){
+    cout << "\n\n\n ERROR --> NO SE PUEDE CONSTRUIR EDIFICIO PORQUE SOY UN : CASILLERO TRANSITABLE\n" << endl;
+    return ERROR;
+}
 Edificio* Transitable::getEdificio(){
     return NULL;
 }

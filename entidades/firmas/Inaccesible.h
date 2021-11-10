@@ -11,7 +11,7 @@ class Inaccesible : public Casillero
         Inaccesible();
         Inaccesible(char);
         ~Inaccesible();
-        void construirEdificio(Edificio*);
+        int construirEdificio(Edificio*);
         Edificio* getEdificio();
         Material* getMaterial();
         void mostrar();

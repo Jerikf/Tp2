@@ -9,7 +9,8 @@
 #include "../firmas/Mina.h"
 
 
-
+const int EXITO = 0;
+const int ERROR = -1;
 
 const string PLATAN_ELECTRICA = "planta electrica";
 const string ASERRADERO = "aserradero";
@@ -51,32 +52,39 @@ void Construible:: mostrar(){
     
 }
 
-void Construible::construirEdificio(Edificio* edificio){
-    Edificio* edificioConstruido = NULL;
+int Construible::construirEdificio(Edificio* edificio){
+    int estado = ERROR;
+    if(!this->edificio){
+        Edificio* edificioConstruido = NULL;
 
-    //Obtendo sus datos
-    string nombre = edificio->getNombre();
-    int cantPiedra = edificio->getCantPiedra();
-    int cantMadera = edificio->getCantMadera();
-    int cantMetal = edificio->getCantMetal();
-    int cantMaxPermitidos = edificio->getMaxCantPermitidos();
+        //Obtendo sus datos
+        string nombre = edificio->getNombre();
+        int cantPiedra = edificio->getCantPiedra();
+        int cantMadera = edificio->getCantMadera();
+        int cantMetal = edificio->getCantMetal();
+        int cantMaxPermitidos = edificio->getMaxCantPermitidos();
 
-    //Me genera una nueva instancia dependiendo de que tipo de Edificio sea
-    if(PLATAN_ELECTRICA == nombre){
-        edificioConstruido = new PlantaElectrica(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
-    }else if(ASERRADERO == nombre){
-        edificioConstruido = new Aserradero(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
-    }else if(OBELISCO == nombre){
-        edificioConstruido = new Obelisco(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
-    }else if(FABRICA == nombre){
-        edificioConstruido = new Fabrica(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
-    }else if(ESCUELA == nombre){
-        edificioConstruido = new Escuela(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
-    }else if(MINA == nombre){
-        edificioConstruido = new Mina(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
-    }
+        //Me genera una nueva instancia dependiendo de que tipo de Edificio sea
+        if(PLATAN_ELECTRICA == nombre){
+            edificioConstruido = new PlantaElectrica(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
+        }else if(ASERRADERO == nombre){
+            edificioConstruido = new Aserradero(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
+        }else if(OBELISCO == nombre){
+            edificioConstruido = new Obelisco(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
+        }else if(FABRICA == nombre){
+            edificioConstruido = new Fabrica(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
+        }else if(ESCUELA == nombre){
+            edificioConstruido = new Escuela(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
+        }else if(MINA == nombre){
+            edificioConstruido = new Mina(nombre, cantPiedra, cantMadera, cantMetal, cantMaxPermitidos);
+        }
 
-    //Me construyo el edificio
-    this->edificio = edificioConstruido;
+        //Me construyo el edificio
+        this->edificio = edificioConstruido;
+        cout << "\n\n\n SE CONSTRUYÒ CORRECTAMENTE EL EDIFCIO !!\n" << endl;
+        estado = EXITO;
+    }else
+        cout << "\n\n ERROR --> NO SE PUEDE CONTRUIR EDIFICIO PORQUE YA SE ENCUENTRA CONSTRUIDO EN ESTA COORDENADA\n\n" << endl;
 
+    return estado;
 }
