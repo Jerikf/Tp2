@@ -1,9 +1,16 @@
 #include "../firmas/Material.h"
+#include "../../recursos/firmas/Recursos.h"
 #include <iostream>
 
 void Material::mostrar(){
-    cout << this->nombre << endl;
-    cout << "cantidad Disponible es : " << this->cantidad << endl;
+    Recurso recurso;
+
+    cout << "\n\n"; 
+	cout << "|---------------------------------------------|" << endl;
+	cout << "		" << recurso.convertirAMayuscula(this->nombre) << endl;
+	cout << "	" << "CANDTIDAD MATERIAL : " << this->cantidad << endl;
+	cout << "|---------------------------------------------|" << endl;
+	cout << "\n"; 
 }
 
 Material::Material(string nombre, int cantidad){
