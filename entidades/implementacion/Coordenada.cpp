@@ -26,6 +26,5 @@ void Coordenada::setColumna(int columna){
 }
 
 void Coordenada::mostrar(){
-    cout << "Fila: " << this->fila << endl;
-    cout << "Columna: " << this->columna << endl; 
+    cout << "Fila: " << this->fila << " Columna: " << this->columna << endl; 
 }
