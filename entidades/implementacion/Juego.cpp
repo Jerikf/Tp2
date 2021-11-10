@@ -98,5 +98,18 @@ void Juego::listarEdificiosConstruidos(){
 }
 
 void Juego::listarTodosLosEdificios(){
-    this->edificios->mostrar();
+    Edificio* edificio = NULL;
+    Vect<Coordenada>* coordenadasDelLosEdificiosConstruidos = NULL;
+    cout << "       lISTADO DE TODOS LOS EDIFICIOS" ;
+    for(int pos = 0; pos < this->edificios->obtenerCantidad(); pos++){
+        edificio = this->edificios->obtenerDato(pos);
+        coordenadasDelLosEdificiosConstruidos = this->obtenerCoordenadas(edificio->getNombre());
+        edificio->mostrar();
+        cout << "        CANTIDAD CONSTRUIDOS : " << coordenadasDelLosEdificiosConstruidos->obtenerCantidad() << endl;
+        cout << "        FALTAN CONSTRUIR : " << edificio->getMaxCantPermitidos() - coordenadasDelLosEdificiosConstruidos->obtenerCantidad() << endl;
+        cout << "|---------------------------------------------|" << endl;
+
+        delete coordenadasDelLosEdificiosConstruidos;
+        coordenadasDelLosEdificiosConstruidos = NULL;
+    }
 }

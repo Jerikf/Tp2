@@ -3,7 +3,7 @@
 
 void PlantaElectrica::mostrar(){
     Edificio::mostrar();
-    cout << "   MATERIAL BRINDADO : NO BRINDA" << endl;
+    cout << "        MATERIAL BRINDADO : NO BRINDA" << endl;
 }
 
 PlantaElectrica::PlantaElectrica(string nombre, int cantPiedra, int cantMadera, int cantMetal, int cantMaxPermitidos) : Edificio(nombre,cantPiedra, cantMadera, cantMetal, cantMaxPermitidos){
