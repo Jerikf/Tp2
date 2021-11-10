@@ -18,7 +18,10 @@ class Juego
         Vect<Edificio>* edificios;
         Vect<Material>* materiales;
         Mapa* mapa;
-       
+
+        //PRE: RECIBE UN NOMBRE DE EDIFCIO
+        //POS: DEVUELVE UN VECTOR DE COORDENAS QUE SE BUSCARON EN EL MAPA, EN CASO DE NO HABER NINGÚN EDIFICIO CON DICHO NOMBRE DEVUELVE NULL
+        Vect<Coordenada>* obtenerCoordenadas(string);
     public:
         Juego(Datos*, Vect<Edificio>*, Vect<Material>*);
         ~Juego();
