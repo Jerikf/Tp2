@@ -1,8 +1,18 @@
 #include "../firmas/Edificio.h"
+#include "../../recursos/firmas/Recursos.h"
 #include <iostream>
 
+
 void Edificio::mostrar(){
-    cout << "soy Padre" << endl;
+    Recurso recurso;
+    cout << "\n\n"; 
+	cout << "|---------------------------------------------|" << endl;
+	cout << "		"<< recurso.convertirAMayuscula(this->nombre) << endl;
+	cout << "	CANTIDAD DE PIEDRA : " << this->cantPiedra << endl;
+	cout << "	CANTIDAD DE MADERA : " << this->cantMadera << endl;
+	cout << "	CANTIDAD DE METAL : " << this->cantMetal << endl;
+	cout << "	CANTIDAD MAXIMOS PERMITIDOS: " << this->maxCantPermitidos << endl;
+	//cout << "|---------------------------------------------|" << endl;
 }
 
 Edificio::Edificio(string nombre, int cantPiedra, int cantMadera, int cantMetal, int cantMaxPermitidos){

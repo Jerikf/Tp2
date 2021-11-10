@@ -18,7 +18,7 @@ class Edificio
         Edificio(string, int, int, int, int);
         //Edificio();
         virtual ~Edificio();
-        virtual void mostrar()=0;
+        virtual void mostrar();
         string getNombre();
         int getCantPiedra();
         int getCantMadera();

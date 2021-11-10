@@ -188,7 +188,7 @@ void Datos::cargarDatosUbicaciones(Mapa* mapa, Vect<Edificio> *edificios){
         }
     }
     archivoUbicaciones.close();
-    mapa->mostrar();
+    //mapa->mostrar();
 
 }
 
