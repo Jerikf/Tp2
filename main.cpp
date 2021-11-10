@@ -26,6 +26,7 @@ int main(){
     juego.mostrarMenu();
     juego.mostrarInventario();
     juego.listarEdificiosConstruidos();
+    juego.listarTodosLosEdificios();
 
 
     return 0;
