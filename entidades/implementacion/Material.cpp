@@ -27,3 +27,6 @@ string Material::getNombre(){
 int Material::getCantidad(){
     return this->cantidad;
 }
+void Material::setCantidad(int cantidad){
+    this->cantidad = cantidad;
+}

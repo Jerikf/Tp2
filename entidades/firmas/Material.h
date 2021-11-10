@@ -15,6 +15,7 @@ class Material
         void mostrar();
         string getNombre();
         int getCantidad();
+        void setCantidad(int cantidad);
 };
 
 #endif //MATERIAL_H
