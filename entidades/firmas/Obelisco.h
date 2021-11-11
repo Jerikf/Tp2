@@ -9,8 +9,17 @@ class Obelisco : public Edificio
         /* data */
 
     public:
+
+        //PRE:Recibe un nombre, cantidades de piedra, madera, metal y un maximo permitido
+        //POS:Construye la fabrica, pasando los argumento a la clase padre Edificio
         Obelisco(string, int, int, int, int);
+
+        //PRE:
+        //POS:destructor
         ~Obelisco();
+
+        //PRE:
+        //POS:Llama al mostrar del padre(que tiene toda la info del edificio) y además muestra que no brinda material
         void mostrar();
 };
 

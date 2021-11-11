@@ -13,16 +13,45 @@ class Casillero
     protected:
         char tipo;
     public:
+
+        //PRE: recibe un tipo de casillero
+        //POS: Construye el casillero, asignando el tipo 
         Casillero(char);
+
+        //PRE:
+        //POS: Constructor vacio
         Casillero();
+
+        //PRE:
+        //POS: Destructor
         virtual ~Casillero();
+
+        //PRE:
+        //POS: Cada subClase implementará según sepa responder el mensaje
         virtual void mostrar()=0;
+
+        //PRE:
+        //POS: Cada subClase implementará según sepa responder el mensaje
         virtual int construirEdificio(Edificio*)=0;
+
+        //PRE:
+        //POS: Cada subClase implementará según sepa responder el mensaje
         virtual Edificio* getEdificio()=0;
+
+        //PRE:
+        //POS: Cada subClase implementará según sepa responder el mensaje
         virtual Material* getMaterial()=0;
+
+        //PRE:
+        //POS: Cada subClase implementará según sepa responder el mensaje
         virtual Edificio* demolerEdificio()=0;
-        void mostrarTipo();
+
+        //PRE:
+        //POS: Retorna el tipo
         char getTipo();
+
+        //PRE:
+        //POS:Actualiza el tipo
         void setTipo(char);
 };
 

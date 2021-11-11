@@ -56,6 +56,7 @@ int Mapa::getCantColumnas(){
     return this->cantColumnas;
 }
 
+//TODO-->Modificar para que muestre como corresponde
 void Mapa::mostrar(){
     for(int i = 0; i < this->cantFilas; i++){
         for(int j = 0; j < this->cantColumnas; j++){

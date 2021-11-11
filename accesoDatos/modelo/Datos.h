@@ -30,20 +30,51 @@ class Datos
         string nombreArchivoMateriales;
         string nombreArchivoMapa;
         string nombreArchivoUbicaciones;
+
+        //PRE:
+		//POS:
         Coordenada extraerCoordenada(string,string);
         
     public:
+    
+        //PRE: Recibe los nombre de los archivos(deben existir)
+		//POS: Asigna a los atributos los nombres de archivos según corresponda
         Datos(string,string,string, string);
+
+        //PRE:
+		//POS:Destructor
         ~Datos();
 
-        void cargarDatosEdificios(Vect<Edificio>* datos);
+        //PRE: Recibe un vector de edificios
+		//POS: Carga los datos del archivo edificios al vector
+        void cargarDatosEdificios(Vect<Edificio>* edificios);
+        
+        //PRE: Recibe un vector de materiales
+		//POS: Carga los datos del archivo materiales al vector
         void cargarDatosMateriales(Vect<Material>* materiales);
+        
+        //PRE: Recibe la dirección de un mapa(se modificará desde acá)
+		//POS: Construye el mapa cargando los datos del archivo mapa
         void cargarDatosMapa(Mapa** mapa);
+        
+        //PRE: Recibe un mapa y un vectore de edificios
+		//POS: Llena el mapa con edificios según diga el archivo de ubicaciones
         void cargarDatosUbicaciones(Mapa* mapa, Vect<Edificio>*);
 
+        //PRE: Recibe un vector de materiales
+		//POS: Actualiza el archivo materiales, guardando los datos que almacena el vector
         void guardarDatosMateriales(Vect<Material>* materiales);
+        
+        //PRE: Recibe un vector de edificios
+		//POS: Actualiza el archivo edificios, guardando los datos que almacena el vector
         void gurdarDatosEdificios(Vect<Edificio>* edificios);
+        
+        //PRE: Recibe un mapa
+		//POS: Actualiza el archivo mapa, guardando los datos que almacena el mapa
         void guardarDatosMapa(Mapa* mapa);
+        
+        //PRE: Recibe un mapa
+		//POS: Actualiza el archivo ubicaciones, según sea cada edificio del casillero construible
         void guardarDatosUbicaciones(Mapa* mapa);
 
         

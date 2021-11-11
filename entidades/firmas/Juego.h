@@ -32,15 +32,45 @@ class Juego
         Edificio* obtenerEdificio(string);
         
     public:
+
+        //PRE: Recibe la clase datos, un vector de edificios y materiales
+        //POS: Construye el juego y instancia los datos pasados por parametros, además instancia en NULL EL MAPA
         Juego(Datos*, Vect<Edificio>*, Vect<Material>*);
+
+        //PRE:
+        //POS: Libera la memoria de los datos, edificios, material y del mapa(en caso no esté vacío)
         ~Juego();
+
+        //PRE:
+        //POS: Carga todos los datos de edificios, materiales y mapa
         void inicializarCargadoDatos();
+
+        //PRE:
+        //POS: Muestra el menu de opciones
         void mostrarMenu();
+
+        //PRE:
+        //POS: Lista todos los edificios construidos
         void listarEdificiosConstruidos();
+
+        //PRE:
+        //POS: Lista todos los edificios existentes
         void listarTodosLosEdificios();
+
+        //PRE:
+        //POS: Muestra todos los materiales existentes
         void mostrarInventario();
+
+        //PRE: Recibe un nombre de edificio y una coordenada
+        //POS: Construye el edificio en caso que sea correcto los parámetros
         void construirEdificioPorNombre(string,Coordenada);
+
+        //PRE: Recibe una coordenada
+        //POS: Demuele el edificio si la coordenada es correcta
         void demolerEdificioPorCoordenada(Coordenada);
+
+        //PRE: Recibe una coordeanda
+        //POS: Muestra que hay en el casillero según la coordeanda pasa, este sabe responderse a sí mismo y llama a su contenido
         void consultarCoordenada(Coordenada);
 
 };

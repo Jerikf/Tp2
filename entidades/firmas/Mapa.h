@@ -10,13 +10,35 @@ class Mapa
         int cantFilas;
         int cantColumnas;
         Casillero*** casilleros;
+
     public:
+
+        //PRE: Recibe la cantidad de filas y columnas
+        //POS: Construye el mapa reservando memoria dinámica de casilleros según los parámetros pasados(para el tamaño), además inicializa todos en null
         Mapa(int,int);
+
+        //PRE:
+        //POS:Libera la memoria de todos los casilleros guardados 
         ~Mapa();
+
+        //PRE:
+        //POS: Muestra el mapa
         void mostrar();
+
+        //PRE: Recibe un casillero y una coordenada
+        //POS: Agrega el casillero si la coordeanda es válida
         void agregarCasillero(Casillero*,Coordenada);
+
+        //PRE: Recibe una coordenda
+        //POS: Devuelve el casillero que se encuentra en dicha coordeanda(en caso de ser válida)
         Casillero* getCasillero(Coordenada);
+
+        //PRE:
+        //POS: Retorna la cantidad de filas
         int getCantFilas();
+
+        //PRE:
+        //POS: Retorna la canti de columnas
         int getCantColumnas();
     };
 

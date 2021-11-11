@@ -16,7 +16,3 @@ char Casillero:: getTipo(){
 void Casillero::setTipo(char tipo){
     this->tipo = tipo;
 }
-
-void Casillero::mostrarTipo(){
-    cout << "Tipo : " << this->tipo << endl;
-}
