@@ -95,6 +95,7 @@ Edificio* Construible::demolerEdificio(){
         edificioResultado = this->edificio;
         this->edificio = NULL;
         cout << "\n\n\n SE DEMOLIÓ CORRECTAMENTE EL EDIFICIO" << endl;
-    }
+    }else
+        cout << "\n\n\n ERROR --> CASILLERO VACÍO" << endl;
     return edificioResultado;
 }
