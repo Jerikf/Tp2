@@ -63,6 +63,7 @@ int main(){
     */
 
     //------------------------PRUEBAS PARA LA DEMOLICIÓN DE UN EDIFICIO-----------------------------
+    /*
     Coordenada coordenada1(100,2);
     Coordenada coordenada2(0,2);
     Coordenada coordenada3(0,5);
@@ -79,6 +80,20 @@ int main(){
 
     juego.mostrarInventario(); // PARA CORROBORAR QUE SE DEVOLVIERON LOS MATERIALES CORRECTAMENTE
     juego.listarTodosLosEdificios(); // PARA CORROBORAR QUE SE HAYA DISMINUIDO LA MINA (PORQUE TIEN 2 CONSTRUIDOS)
+    */
+
+   //------------------------PRUEBAS PARA CONSULTAR COORDENADA-----------------------------
+    Coordenada coordenada1(100,2);
+    Coordenada coordenada2(0,2);
+    Coordenada coordenada3(0,5);
+    Coordenada coordenada4(0,0);
+    Coordenada coordenada5(4,7);
+
+    juego.consultarCoordenada(coordenada1); // ERROR --> COORDENADA FUERA DE RANGO
+    juego.consultarCoordenada(coordenada2); // CASILLERO CONSTRUIBLE VACÍO
+    juego.consultarCoordenada(coordenada3); // CASILLERO TRANSITABLE VACÌO
+    juego.consultarCoordenada(coordenada4); // CASILLERO INACCESIBLE VACÌO
+    juego.consultarCoordenada(coordenada5); // CASILLERO CONSTRUIBLE CON UNA MINA
 
 
     return 0;
