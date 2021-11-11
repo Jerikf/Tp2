@@ -18,11 +18,12 @@ int main(){
     Datos* datos = new Datos("edificios.txt","materiales.txt","mapa.txt","ubicaciones.txt");
     Vect<Edificio>* edificios = new Vect<Edificio>; 
     Vect<Material>* materiales = new Vect<Material>;
-    Juego juego(datos, edificios, materiales); //TODO--> Puedo directamente instanciar en el constructor, cuál serái lo mejor?
+    Juego juego(datos, edificios, materiales); //TODO--> Puedo instanciar directamente  en el constructor, cuál serái lo mejor?
 
 
     //Cargo los datos del archivo
     juego.inicializarCargadoDatos();
+    /* --------------------- PRUEBA DE CONSTRUIR EDIFICIO POR NOMBRE---------------------------
     juego.mostrarMenu();
     juego.mostrarInventario();
     juego.listarEdificiosConstruidos();
@@ -59,6 +60,25 @@ int main(){
     juego.listarTodosLosEdificios();
     juego.listarEdificiosConstruidos();
     juego.mostrarInventario();
+    */
+
+    //------------------------PRUEBAS PARA LA DEMOLICIÓN DE UN EDIFICIO-----------------------------
+    Coordenada coordenada1(100,2);
+    Coordenada coordenada2(0,2);
+    Coordenada coordenada3(0,5);
+    Coordenada coordenada4(0,0);
+    Coordenada coordenada5(4,7);
+    
+    cout << "\n------------------" << endl;
+
+    juego.demolerEdificioPorCoordenada(coordenada1); // ERROR --> FUERA DE RANGO DE LAS COORDENADAS
+    juego.demolerEdificioPorCoordenada(coordenada2); // ERROR --> CASILLERO VACÍO
+    juego.demolerEdificioPorCoordenada(coordenada3); // ERROR --> ES UN CASILLERO TRANSITABLE
+    juego.demolerEdificioPorCoordenada(coordenada4); // ERROR --> ES UN CASILLERO INACCESIBLE
+    juego.demolerEdificioPorCoordenada(coordenada5); // OK --> DEMUELO UNA MINA
+
+    juego.mostrarInventario(); // PARA CORROBORAR QUE SE DEVOLVIERON LOS MATERIALES CORRECTAMENTE
+    juego.listarTodosLosEdificios(); // PARA CORROBORAR QUE SE HAYA DISMINUIDO LA MINA (PORQUE TIEN 2 CONSTRUIDOS)
 
 
     return 0;
