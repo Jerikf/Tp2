@@ -7,9 +7,9 @@ Inaccesible::Inaccesible(){}
 Inaccesible::Inaccesible(char tipo) : Casillero(tipo){}
 Inaccesible::~Inaccesible(){}
 void Inaccesible::mostrar(){
-        this->mostrarTipo();
-        cout << "Acá no hay nada --> casillero Inaccesible" << endl;
-    
+    cout << "\n\n\n|----------------------------------------------------|" << endl;
+    cout << "   SOY VACÌO --> SOY UN CASILLERO INACCESIBLE" << endl;
+    cout << "|----------------------------------------------------|" << endl;
 }
 int Inaccesible::construirEdificio(Edificio* edificio){
     cout << "\n\n\n ERROR --> NO SE PUEDE CONSTRUIR EDIFICIO PORQUE SOY UN : CASILLERO INACCESIBLE\n" << endl;

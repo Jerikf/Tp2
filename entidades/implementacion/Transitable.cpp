@@ -30,10 +30,13 @@ void Transitable::setMaterial(Material* material){
 
 void Transitable::mostrar(){
     if(this->material){
+        cout << "\n\n\n";
+        cout << "|--------------------------------------------------------------|" << endl;
+        cout << "SOY UN CASILLERO TRANSITABLE Y ME ENCUENTRO OCUPADO POR : " << endl;
         this->material->mostrar();
-        this->mostrarTipo();
+        cout << "|--------------------------------------------------------------|" << endl;
     }else{
-        cout << "Estoy vacío --> casillero Transitable" << endl;
+        cout << "\n\n\nESTO VACÍO--> SOY UN CASILLERO TRANSITALBE" << endl;
     }
     
 }

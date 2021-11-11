@@ -44,10 +44,13 @@ Material* Construible::getMaterial(){
 
 void Construible:: mostrar(){
     if(this->edificio){
-        this->mostrarTipo();
+        cout << "\n\n\n";
+        cout << "|--------------------------------------------------------|" << endl;
+        cout << "SOY UN CASILLERO CONSTRUIBLE Y ME ENCUENTRO OCUPADO POR : " << endl;
         this->edificio->mostrar();
+        cout << "|--------------------------------------------------------|" << endl;
     }else{
-        cout << "Estoy vacio --> Casillero construible" << endl;
+        cout << "\n\n\nESTOY VACÍO --> SOY UN CASILLERO CONSTRUIBLE" << endl;
     }
     
 }

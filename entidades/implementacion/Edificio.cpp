@@ -5,8 +5,8 @@
 
 void Edificio::mostrar(){
     Recurso recurso;
-    cout << "\n\n"; 
-	cout << "|---------------------------------------------|" << endl;
+    //cout << "\n\n"; 
+	//cout << "|---------------------------------------------|" << endl;
 	cout << "		"<< recurso.convertirAMayuscula(this->nombre) << endl;
 	cout << "	CANTIDAD DE PIEDRA : " << this->cantPiedra << endl;
 	cout << "	CANTIDAD DE MADERA : " << this->cantMadera << endl;
