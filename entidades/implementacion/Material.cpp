@@ -2,6 +2,14 @@
 #include "../../recursos/firmas/Recursos.h"
 #include <iostream>
 
+const string PIEDRA = "piedra";
+const string MADERA = "madera";
+const string METAL = "metal";
+
+const char PIEDRA_ABREVIATURA = 'S';
+const char MADERA_ABREVIATURA = 'W';
+const char METAL_ABREVIATURA = 'I';
+
 void Material::mostrar(){
     Recurso recurso;
 
@@ -29,4 +37,18 @@ int Material::getCantidad(){
 }
 void Material::setCantidad(int cantidad){
     this->cantidad = cantidad;
+}
+
+char Material::getAbreviaturaDeNombre(){
+    
+    char abreviatura = ' ';
+    if(this->nombre == PIEDRA){
+        abreviatura = PIEDRA_ABREVIATURA;
+    }else if(this->nombre == MADERA){
+        abreviatura = MADERA_ABREVIATURA;
+    }else if(this->nombre == METAL){
+        abreviatura = METAL_ABREVIATURA;
+    }
+
+    return abreviatura;
 }

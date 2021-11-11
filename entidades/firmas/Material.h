@@ -1,6 +1,7 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 #include <string>
+
 using namespace std;
 
 class Material
@@ -30,6 +31,10 @@ class Material
         //PRE:
         //POS: Retorna su cantidad
         int getCantidad();
+
+        //PRE:
+        //POS: Devuelve la abreviatura según sea el nombre del meaterial
+        char getAbreviaturaDeNombre();
 
         //PRE: Recibe una cantidad para para actualizar
         //POS: Actualiza la cantidad del material
