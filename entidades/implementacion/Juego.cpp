@@ -376,3 +376,8 @@ void Juego::lluviaDeRecursos(){
     this->recolectarMateriales(cantMetal, metal);
 
 }
+
+
+void Juego::mostrarMapa(){
+    this->mapa->mostrar();
+}

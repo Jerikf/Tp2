@@ -92,8 +92,12 @@ class Juego
         void guardarSalir(); 
 
         //PRE:
-        //POS: 
+        //POS: Crea cantidad  de Materiales aleatorios con cada material, además también tiene coordenadas aleatorias y lo contruye en el casillero correspondiente de ser Transitable
         void lluviaDeRecursos();
+
+        //PRE:
+        //POS: Muestra el mapa según pedido en la consigna
+        void mostrarMapa();
 
 };
 

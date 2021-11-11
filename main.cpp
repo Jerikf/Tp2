@@ -116,7 +116,7 @@ int main(){
     juego.mostrarInventario(); // Comparo si se recolectaron los materiales producidos
     */
 
-
+   //---> ^ↀᴥↀ^ ---> (＾• ω •＾) ---> =ටᆼට=
 
     //--------------------------------PRUEBO EL GUARDADO DE LOS DATOS-------------------------------------------
 
@@ -137,8 +137,9 @@ int main(){
 
 
    //---------------------------------PRUEBA DEL NÚMERO ALEATORIO----------------------------------------
-   juego.lluviaDeRecursos();
-    /*
+   /*juego.lluviaDeRecursos();
+   
+
    Coordenada coordenada1(0,5);
    Coordenada coordenada2(0,6);
    Coordenada coordenada3(1,5);
@@ -165,6 +166,10 @@ int main(){
 
    juego.lluviaDeRecursos();
    juego.lluviaDeRecursos();*/
+
+   //--------------------------------------PRUEBA DE MOSTRAR EL MAPA-------------------------------------
+   juego.lluviaDeRecursos(); //Agrego algunos recursos para ver si se muestra en el mapa además de los edificios ya cargados
+   juego.mostrarMapa();
 
 
    
