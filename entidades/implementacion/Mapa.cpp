@@ -1,5 +1,26 @@
 #include "../firmas/Mapa.h"
 #include <iostream>
+
+#include "../../recursos/firmas/colors.h"
+/*
+const char PLATAN_ELECTRICA = 'P';
+const char OBELISCO = 'O';
+const char ASERRADERO = 'A';
+const char FABRICA = 'F';
+const char ESCUELA = 'E';
+const char MINA = 'M';*/
+
+/*
+const char PIEDRA = 'S';
+const char MADERA = 'W';
+const char METAL = 'I';*/
+
+const char TERRENO = 'T';
+const char CAMINO = 'C';
+const char LAGO = 'L';
+
+
+
 Mapa::Mapa(int cantFilas, int cantColumnas){
     this->cantFilas = cantFilas;
     this->cantColumnas = cantColumnas;
@@ -69,14 +90,37 @@ int Mapa::getCantColumnas(){
 
 //TODO-->Modificar para que muestre como corresponde
 void Mapa::mostrar(){
-    for(int i = 0; i < this->cantFilas; i++){
-        for(int j = 0; j < this->cantColumnas; j++){
-            if(this->casilleros[i][j]){
-                this->casilleros[i][j]->mostrar();
-            }else{
-                cout << "--contenido vacìo -----" << endl;
+    for(int fila = 0; fila < this->cantFilas; fila++){
+        Edificio* edificio = NULL;
+        Material* material = NULL;
+        for(int columna = 0; columna < this->cantColumnas; columna++){
+            if(this->casilleros[fila][columna]){
+                if(this->casilleros[fila][columna]->getTipo() == TERRENO){
+                    edificio = this->casilleros[fila][columna]->getEdificio();
+
+                    if(edificio){
+                        cout << BGND_GREEN_2 << TXT_DARK_YELLOW_3 << edificio->getAbreviaturaDeNombre() << END_COLOR;
+                    }else
+                        cout << BGND_GREEN_2 << ' ' << END_COLOR;
+                   
+                }else if(this->casilleros[fila][columna]->getTipo() == CAMINO){
+
+                    material = this->casilleros[fila][columna]->getMaterial();
+
+                    if(material){
+                        cout << BGND_DARK_GRAY_59 << TXT_DARK_YELLOW_3 << material->getAbreviaturaDeNombre() << END_COLOR;
+                    }else
+                        cout << BGND_DARK_GRAY_59 << ' ' << END_COLOR;
+                    
+                }else{
+                    cout << BGND_BLUE_27 << ' ' <<END_COLOR;
+                }
             }
-                
+
         }
+
+        cout << "\n";
     }
+
+
 }
