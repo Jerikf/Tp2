@@ -11,8 +11,19 @@ const int CANT_PIEDRA_BRINDADA = 15;
 const int CANT_MADERA_BRINDADA = 25;
 const int CANT_METALES_BRINDADA = 40;
 
+const int MIN_CANT_PIEDRA = 1;
+const int MAX_CANT_PIEDRA = 2;
+
+const int MIN_CANT_MADERA = 0;
+const int MAX_CANT_MADERA = 1;
+
+const int MIN_CANT_METAL = 2;
+const int MAX_CANT_METAL = 4;
+
+const char CAMINO = 'C';
 
 const int VACIO = 0;
+const int INICIO = 0;
 //const int EXITO = 0;
 const string PIEDRA = "piedra";
 const string MADERA = "madera";
@@ -20,6 +31,7 @@ const string METAL = "metal";
 
 
 //----------------------------IMPLEMENTACIÓN DE FUNCIONES PRIVADAS---------------------------------------
+
 Vect<Coordenada>* Juego::obtenerCoordenadas(string nombreEdificio){
     Vect<Coordenada>* coordenadasDelEdificioConstruido = new Vect<Coordenada>;
     Coordenada* coordenada = NULL;
@@ -70,6 +82,51 @@ Edificio* Juego::obtenerEdificio(string nombreEdificio){
     }
     return edificio;
 }
+
+
+Coordenada Juego::obtenerCoordenadaAleatoriaValida(){
+
+    Coordenada coordenada;
+    Recurso recurso;
+    int fila; 
+    int columna; 
+
+    fila = recurso.obtenerNumAleatorio(INICIO, this->mapa->getCantFilas());
+    columna = recurso.obtenerNumAleatorio(INICIO, this->mapa->getCantColumnas());
+    coordenada.setFila(fila);
+    coordenada.setColumna(columna);
+    coordenada.mostrar(); // luego sacarlo solo se uso para la prueba
+
+    return coordenada;
+
+}
+
+
+
+void Juego::recolectarMateriales(int cantDeMaterialesARecolectar, Material* material){
+
+    bool casilleroVacio = true;
+
+    int cantCasillerosTransitables = this->mapa->obtenerCantDeCasilleros(CAMINO);
+    //NO puedo generar coordenadas aleatorias si ya no tengo mas caminos en donde puedo construir un material
+    if(cantDeMaterialesARecolectar <= cantCasillerosTransitables){
+        //Sirve para generar todas las cantidaddes de materiales a recolectar
+        for(int i = 0; i < cantDeMaterialesARecolectar; i++){
+
+            while(casilleroVacio){
+                //Si es exitoso es porque el casillero es Transitable y estaba vacío, sino debe volver a pedir nuevamente una coordenada
+                if(this->mapa->getCasillero(this->obtenerCoordenadaAleatoriaValida())->construirMaterial(material) == EXITO)
+                    casilleroVacio = false;
+            }
+            casilleroVacio = true;
+        }
+    }else
+        cout << "YA NO TENGO MAS ESPACIO" << endl;
+}
+
+//----------------------------------------------------------------------------------------------------------------
+
+
 
 Juego::Juego(Datos* datos, Vect<Edificio>* edificios, Vect<Material>* materiales){
     this->datos = datos;
@@ -143,6 +200,7 @@ void Juego::listarEdificiosConstruidos(){
     }
 }
 
+
 void Juego::listarTodosLosEdificios(){
     Edificio* edificio = NULL;
     Vect<Coordenada>* coordenadasDelEdificioConstruido = NULL;
@@ -159,6 +217,7 @@ void Juego::listarTodosLosEdificios(){
         coordenadasDelEdificioConstruido = NULL;
     }
 }
+
 
 void Juego::construirEdificioPorNombre(string nombre, Coordenada coordenada){
 
@@ -292,4 +351,28 @@ void Juego::guardarSalir(){
     this->datos->guardarDatosUbicaciones(this->mapa);
 
     cout << "\n\n\n SE GUARDÓ CON ÉXITO LOS EDIFICIO, MATERILES, MAPA Y UBICACIONES" << endl;
+}
+
+
+void Juego::lluviaDeRecursos(){
+    
+    Recurso recurso;
+    srand((unsigned)time(0));
+    
+    //Le agregamos el 1 para que sea inclusivo el max
+    int cantPiedra = recurso.obtenerNumAleatorio(MIN_CANT_PIEDRA, MAX_CANT_PIEDRA + 1);
+    int cantMadera = recurso.obtenerNumAleatorio(MIN_CANT_MADERA, MAX_CANT_MADERA + 1);
+    int cantMetal = recurso.obtenerNumAleatorio(MIN_CANT_METAL, MAX_CANT_METAL + 1);
+    
+    
+
+    Material* piedra = this->obtenerMaterial(PIEDRA);
+    Material* madera = this->obtenerMaterial(MADERA);
+    Material* metal = this->obtenerMaterial(METAL);
+
+    //Recolectará de ser necesario, osea siempre y cuadno tenga aun caminos.
+    this->recolectarMateriales(cantPiedra, piedra);
+    this->recolectarMateriales(cantMadera, madera);
+    this->recolectarMateriales(cantMetal, metal);
+
 }

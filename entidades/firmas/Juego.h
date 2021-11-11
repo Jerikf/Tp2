@@ -30,6 +30,16 @@ class Juego
         //PRE: Recibe el nombre de un edificio
         //POS: Devuelve el edificio en caso de encontrarse en el vect de edificios, caso contrario devuelve NULL
         Edificio* obtenerEdificio(string);
+
+        //PRE:
+        //POS: Devuelve una coordenada aleatoria válida(que esté en el rango del mapa, tanto fila como columna)
+        Coordenada obtenerCoordenadaAleatoriaValida();
+
+        //PRE: Recibe la cantidad de materiales a recoletar y un Material
+        //POS: Recolecta el material con la/las coordeanda aleatoria/s tantas veces sea la cantidad de material pasado
+        void recolectarMateriales(int,Material*);
+
+        
         
     public:
 
@@ -80,6 +90,10 @@ class Juego
         //PRE:
         //POS: Actualiza los arhicvos edificios, materiales, mapas y ubicaciones
         void guardarSalir(); 
+
+        //PRE:
+        //POS: 
+        void lluviaDeRecursos();
 
 };
 
