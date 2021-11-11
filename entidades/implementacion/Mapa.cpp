@@ -48,6 +48,17 @@ Casillero* Mapa::getCasillero(Coordenada coordenada){
     return this->casilleros[coordenada.getFila()][coordenada.getColumna()];
 }
 
+int Mapa::obtenerCantDeCasilleros(char tipoDeCasillero){
+    int cantTotal = 0;
+    for(int fil = 0; fil < this->cantFilas; fil++){
+        for(int col = 0; col < this->cantColumnas; col++){
+            if(this->casilleros[fil][col]->getTipo() == tipoDeCasillero)
+                cantTotal++;
+        }
+    }
+    return cantTotal;
+}
+
 int Mapa::getCantFilas(){
     return this->cantFilas;
 }

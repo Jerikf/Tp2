@@ -33,6 +33,10 @@ class Mapa
         //POS: Devuelve el casillero que se encuentra en dicha coordeanda(en caso de ser válida)
         Casillero* getCasillero(Coordenada);
 
+        //PRE: Recibe un Tipo de casillero
+        //POS: Devuelve la cantidad de casilleros del mapa, según el tipo de casillero que sea pasado por parámetro
+        int obtenerCantDeCasilleros(char);
+
         //PRE:
         //POS: Retorna la cantidad de filas
         int getCantFilas();
