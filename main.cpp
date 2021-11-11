@@ -98,6 +98,8 @@ int main(){
     */
 
     //---------------------------------PRUEBA PARA RECOLECTAR LOS RECURSOS PRODUCIDOS------------------------------------
+    
+    /*
     juego.mostrarInventario(); // Me fijo como están mis materiales
 
     //Construiré 1 edificios en coordenas correctas
@@ -112,6 +114,27 @@ int main(){
     
     
     juego.mostrarInventario(); // Comparo si se recolectaron los materiales producidos
+    */
+
+
+
+    //--------------------------------PRUEBO EL GUARDADO DE LOS DATOS-------------------------------------------
+
+    //Construiré 1 edificios en coordenas correctas
+
+    //Alcanza con construir 2 edificios y borrar 1 edificio ya que esto modifica las cantidades de los materiales y las ubicaciones, el mapa no cambia y los edificios tampoco
+    Coordenada coordenada1(7,7);
+    Coordenada coordenada2(5,9);
+    Coordenada coordenada3(1,8); // coordenada donde está una mina
+
+    cout << ".---------------------------------------" << endl;
+    juego.construirEdificioPorNombre("aserradero", coordenada1);
+    juego.construirEdificioPorNombre("escuela", coordenada2);
+    juego.demolerEdificioPorCoordenada(coordenada3);
+
+    juego.guardarSalir();
+
+
 
     return 0;
 }
