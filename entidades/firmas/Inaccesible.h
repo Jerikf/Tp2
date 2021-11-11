@@ -14,6 +14,10 @@ class Inaccesible : public Casillero
         int construirEdificio(Edificio*);
         Edificio* getEdificio();
         Material* getMaterial();
+
+        //PRE:
+        //POS: Muestra el mensaje que es otro casillero y retorna NULL
+        Edificio* demolerEdificio();
         void mostrar();
 };
 

@@ -20,6 +20,7 @@ class Casillero
         virtual int construirEdificio(Edificio*)=0;
         virtual Edificio* getEdificio()=0;
         virtual Material* getMaterial()=0;
+        virtual Edificio* demolerEdificio()=0;
         void mostrarTipo();
         char getTipo();
         void setTipo(char);

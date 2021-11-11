@@ -18,6 +18,10 @@ class Transitable : public Casillero
         void setMaterial(Material*);
         int construirEdificio(Edificio*);
         Edificio* getEdificio();
+
+        //PRE:
+        //POS: Muestra el mensaje que es otro casillero y retorna NULL
+        Edificio* demolerEdificio();
         void mostrar();
 };
 

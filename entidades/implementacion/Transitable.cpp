@@ -42,6 +42,12 @@ int Transitable::construirEdificio(Edificio* edificio){
     cout << "\n\n\n ERROR --> NO SE PUEDE CONSTRUIR EDIFICIO PORQUE SOY UN : CASILLERO TRANSITABLE\n" << endl;
     return ERROR;
 }
+
 Edificio* Transitable::getEdificio(){
+    return NULL;
+}
+
+Edificio* Transitable::demolerEdificio(){
+    cout << "\n\n\n ERROR-> NO SE PUEDE DEMOLER EL EDIFICIO PORQUE SOY UN : CASILLERO TRANSITABLE" << endl;
     return NULL;
 }

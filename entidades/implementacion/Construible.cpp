@@ -88,3 +88,13 @@ int Construible::construirEdificio(Edificio* edificio){
 
     return estado;
 }
+
+Edificio* Construible::demolerEdificio(){
+    Edificio* edificioResultado = NULL;
+    if(this->edificio){
+        edificioResultado = this->edificio;
+        this->edificio = NULL;
+        cout << "\n\n\n SE DEMOLIÓ CORRECTAMENTE EL EDIFICIO" << endl;
+    }
+    return edificioResultado;
+}

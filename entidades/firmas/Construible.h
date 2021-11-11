@@ -19,6 +19,10 @@ class Construible : public Casillero
         int construirEdificio(Edificio*);
         Edificio* getEdificio();
         Material* getMaterial();
+
+        //PRE:
+        //POS: Demuele un edificio(instancia el puntero de edificio en null) retornando el edificio apuntado
+        Edificio* demolerEdificio();
         
 };
 
