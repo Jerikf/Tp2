@@ -5,6 +5,13 @@
 
 using namespace std;
 
+const char PLATAN_ELECTRICA_ABREVIATURA = 'P';
+const char OBELISCO_ABREVIATURA = 'O';
+const char ASERRADERO_ABREVIATURA = 'A';
+const char FABRICA_ABREVIATURA = 'F';
+const char ESCUELA_ABREVIATURA = 'E';
+const char MINA_ABREVIATURA = 'M';
+
 class Edificio
 {
     protected:
@@ -31,6 +38,10 @@ class Edificio
         //PRE:
         //POS: Retorna el nombre del edificio
         string getNombre();
+
+        //PRE:
+        //POS: Cada edficio devolverá su propia abreviatura de nombre
+        virtual char getAbreviaturaDeNombre()=0;
 
         //PRE:
         //POS:Retorna la cantidad de la piedra

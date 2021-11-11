@@ -11,3 +11,7 @@ Aserradero::Aserradero(string nombre, int cantPiedra, int cantMadera, int cantMe
 }
 
 Aserradero::~Aserradero(){}
+
+char Aserradero::getAbreviaturaDeNombre(){
+    return ASERRADERO_ABREVIATURA;
+}

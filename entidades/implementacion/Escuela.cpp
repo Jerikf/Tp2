@@ -11,3 +11,7 @@ Escuela::Escuela(string nombre, int cantPiedra, int cantMadera, int cantMetal, i
 }
 
 Escuela::~Escuela(){}
+
+char Escuela::getAbreviaturaDeNombre(){
+    return ESCUELA_ABREVIATURA;
+}

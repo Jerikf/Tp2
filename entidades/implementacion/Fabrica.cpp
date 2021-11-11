@@ -11,3 +11,7 @@ Fabrica::Fabrica(string nombre, int cantPiedra, int cantMadera, int cantMetal, i
 }
 
 Fabrica::~Fabrica(){}
+
+char Fabrica::getAbreviaturaDeNombre(){
+    return FABRICA_ABREVIATURA;
+}

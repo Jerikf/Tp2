@@ -11,3 +11,7 @@ Obelisco::Obelisco(string nombre, int cantPiedra, int cantMadera, int cantMetal,
 }
 
 Obelisco::~Obelisco(){}
+
+char Obelisco::getAbreviaturaDeNombre(){
+    return OBELISCO_ABREVIATURA;
+}

@@ -19,6 +19,10 @@ class PlantaElectrica : public Edificio
         ~PlantaElectrica();
 
         //PRE:
+        //POS: Retorta su abreviatura de su propio nombre
+        char getAbreviaturaDeNombre();
+
+        //PRE:
         //POS:Llama al mostrar del padre(que tiene toda la info del edificio) y además muestra que no brinda material
         void mostrar();
 };

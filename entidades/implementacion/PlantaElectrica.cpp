@@ -11,3 +11,7 @@ PlantaElectrica::PlantaElectrica(string nombre, int cantPiedra, int cantMadera, 
 }
 
 PlantaElectrica::~PlantaElectrica(){}
+
+char PlantaElectrica::getAbreviaturaDeNombre(){
+    return PLATAN_ELECTRICA_ABREVIATURA;
+}

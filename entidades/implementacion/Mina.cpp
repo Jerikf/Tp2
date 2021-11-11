@@ -11,3 +11,7 @@ Mina::Mina(string nombre, int cantPiedra, int cantMadera, int cantMetal, int can
 }
 
 Mina::~Mina(){}
+
+char Mina::getAbreviaturaDeNombre(){
+    return MINA_ABREVIATURA;
+}
