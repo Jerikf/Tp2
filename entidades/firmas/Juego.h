@@ -41,6 +41,7 @@ class Juego
         void mostrarInventario();
         void construirEdificioPorNombre(string,Coordenada);
         void demolerEdificioPorCoordenada(Coordenada);
+        void consultarCoordenada(Coordenada);
 
 };
 

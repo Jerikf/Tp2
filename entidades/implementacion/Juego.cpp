@@ -229,3 +229,12 @@ void Juego::demolerEdificioPorCoordenada(Coordenada coordenada){
         cout << "\n\n ERROR--> COORDENADA FUERA DE RANGO DEL MAPA" << endl;
 
 }
+
+void Juego::consultarCoordenada(Coordenada coordenada){
+    Casillero* casillero = this->mapa->getCasillero(coordenada);
+    if(casillero){
+        casillero->mostrar();
+    }else
+        cout << "\n\n\n COORDENADA FUERA DEL RANGO" << endl;
+
+}
