@@ -74,8 +74,12 @@ class Juego
         void consultarCoordenada(Coordenada);
 
         //PRE:
-        //POS: Recolecta los materiales que pueden producir o no los edificios construidos
-        void recolectarRecursosProducidos(); 
+        //POS: Recolecta los materiales que pueden producir o no los edificios construidos, modificando así la cantidad de los materiales
+        void recolectarRecursosProducidos();
+
+        //PRE:
+        //POS: Actualiza los arhicvos edificios, materiales, mapas y ubicaciones
+        void guardarSalir(); 
 
 };
 

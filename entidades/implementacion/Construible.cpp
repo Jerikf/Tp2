@@ -87,7 +87,7 @@ int Construible::construirEdificio(Edificio* edificio){
         cout << "\n\n\n SE CONSTRUYÒ CORRECTAMENTE EL EDIFCIO !!\n" << endl;
         estado = EXITO;
     }else
-        cout << "\n\n ERROR --> NO SE PUEDE CONTRUIR EDIFICIO PORQUE YA SE ENCUENTRA CONSTRUIDO EN ESTA COORDENADA\n\n" << endl;
+        cout << "\n\n ERROR --> NO SE PUEDE CONTRUIR EDIFICIO PORQUE YA EL CASILLERO YA SE ENCUENTRA OCUPADO\n\n" << endl;
 
     return estado;
 }
