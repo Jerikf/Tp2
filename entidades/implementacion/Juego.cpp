@@ -200,3 +200,32 @@ void Juego::construirEdificioPorNombre(string nombre, Coordenada coordenada){
         cout << "\n\n ERROR --> NO SE PUEDE CONTRUIR EDIFICIO PORQUE NO EXISTE EL NOMBRE DEL EDIFICIO \n\n" << endl;
     delete coordenadasDelEdificioConstruido;
 }
+
+void Juego::demolerEdificioPorCoordenada(Coordenada coordenada){
+    Casillero* casillero = this->mapa->getCasillero(coordenada);
+    Edificio* edificio = NULL;
+    if(casillero){
+        edificio = casillero->demolerEdificio();
+
+        //Si es que se demolió correctamente tengo que devolver la mitad de los materiales usado
+        if(edificio){
+            Material* piedra = this->obtenerMaterial(PIEDRA);
+            Material* madera = this->obtenerMaterial(MADERA);
+            Material* metal = this->obtenerMaterial(METAL);
+
+            int piedraDeEdificio = edificio->getCantPiedra() / 2;
+            int maderaDeEdificio = edificio->getCantMadera() / 2;
+            int metalDeEdificio = edificio->getCantMetal() / 2;
+
+            piedra->setCantidad(piedra->getCantidad() + piedraDeEdificio);
+            madera->setCantidad(madera->getCantidad() + maderaDeEdificio);
+            metal->setCantidad(metal->getCantidad() + metalDeEdificio);
+
+            delete edificio; //TENGO QUE LIBERAR SU MEMORIA YA QUE EL CASILLERO CONSTRUIBLE ME DEVOLVIÓ LA DIRECCION Y ESTE LO INSTANCIÓ EN NULL
+                            //ENTONCES CUANDO SE LIBERE CASILLERO CON SU DESTRUCTOR YA NO ESTARÍA ESTE EDIFICIO
+        }
+
+    }else
+        cout << "\n\n ERROR--> COORDENADA FUERA DE RANGO DEL MAPA" << endl;
+
+}

@@ -19,11 +19,18 @@ class Juego
         Vect<Material>* materiales;
         Mapa* mapa;
 
-        //PRE: RECIBE UN NOMBRE DE EDIFCIO
-        //POS: DEVUELVE UN VECTOR DE COORDENAS QUE SE BUSCARON EN EL MAPA, EN CASO DE NO HABER NINGÚN EDIFICIO CON DICHO NOMBRE DEVUELVE NULL
+        //PRE: Recibe el nombre de un edificio
+        //POS: Devuelve un vector de coordenadas que se bucaron en el mapa, en caso de no haber ningún edificio con dicho nombre devuelve null
         Vect<Coordenada>* obtenerCoordenadas(string);
+
+        //PRE: Recibe el nombre de un material
+        //POS: Devuelve el material en caso de encontrarse en el vect de materiales, caso contrario devuelve NULL
         Material* obtenerMaterial(string);
+
+        //PRE: Recibe el nombre de un edificio
+        //POS: Devuelve el edificio en caso de encontrarse en el vect de edificios, caso contrario devuelve NULL
         Edificio* obtenerEdificio(string);
+        
     public:
         Juego(Datos*, Vect<Edificio>*, Vect<Material>*);
         ~Juego();
@@ -33,6 +40,7 @@ class Juego
         void listarTodosLosEdificios();
         void mostrarInventario();
         void construirEdificioPorNombre(string,Coordenada);
+        void demolerEdificioPorCoordenada(Coordenada);
 
 };
 
