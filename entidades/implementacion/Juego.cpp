@@ -2,6 +2,16 @@
 #include "../../recursos/firmas/Recursos.h"
 #include <iostream>
 
+
+const string ASERRADERO = "aserradero";
+const string FABRICA = "fabrica";
+const string MINA = "mina";
+
+const int CANT_PIEDRA_BRINDADA = 15;
+const int CANT_MADERA_BRINDADA = 25;
+const int CANT_METALES_BRINDADA = 40;
+
+
 const int VACIO = 0;
 //const int EXITO = 0;
 const string PIEDRA = "piedra";
@@ -237,4 +247,40 @@ void Juego::consultarCoordenada(Coordenada coordenada){
     }else
         cout << "\n\n\n COORDENADA FUERA DEL RANGO" << endl;
 
+}
+
+void Juego::recolectarRecursosProducidos(){
+
+    Material* piedra = NULL;
+    Material* madera = NULL;
+    Material* metal = NULL;
+    
+    Edificio* edificio = NULL;
+    for(int fil = 0; fil < this->mapa->getCantFilas(); fil++){
+        for(int col = 0; col < this->mapa->getCantColumnas(); col++){
+
+            Coordenada coordena(fil,col);
+            edificio = this->mapa->getCasillero(coordena)->getEdificio();
+
+            if(edificio){
+
+                //Dependiendo del edificio que brinda una cantidad de material, actualizo el material según corresponda
+                if(edificio->getNombre() == MINA){
+                    piedra = this->obtenerMaterial(PIEDRA);
+                    piedra->setCantidad(piedra->getCantidad() + CANT_PIEDRA_BRINDADA);
+
+                }else if(edificio->getNombre() == ASERRADERO){
+                    madera = this->obtenerMaterial(MADERA);
+                    madera->setCantidad(madera->getCantidad() + CANT_MADERA_BRINDADA);
+
+                }else if(edificio->getNombre() == FABRICA){
+                    metal = this->obtenerMaterial(METAL);
+                    metal->setCantidad(metal->getCantidad() + CANT_METALES_BRINDADA);
+                }
+
+            }
+        }
+    }
+
+    cout << "\n\n\nSE RECOLECTARON LOS RECURSOS EN CASO HAYA EXISITDO UN EDIFICIO QUE BRINDE RECURSOS" << endl;
 }

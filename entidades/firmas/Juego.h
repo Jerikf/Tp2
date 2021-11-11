@@ -73,6 +73,10 @@ class Juego
         //POS: Muestra que hay en el casillero según la coordeanda pasa, este sabe responderse a sí mismo y llama a su contenido
         void consultarCoordenada(Coordenada);
 
+        //PRE:
+        //POS: Recolecta los materiales que pueden producir o no los edificios construidos
+        void recolectarRecursosProducidos(); 
+
 };
 
 #endif //JUEGO_H
