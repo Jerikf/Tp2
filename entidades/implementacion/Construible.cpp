@@ -92,6 +92,10 @@ int Construible::construirEdificio(Edificio* edificio){
     return estado;
 }
 
+int Construible::construirMaterial(Material* material){
+    return ERROR;
+}
+
 Edificio* Construible::demolerEdificio(){
     Edificio* edificioResultado = NULL;
     if(this->edificio){

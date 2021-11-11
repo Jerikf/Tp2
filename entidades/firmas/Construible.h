@@ -20,6 +20,10 @@ class Construible : public Casillero
         //POS: Construye el casillero Construible asignando el tipo y edificios a sus atributos
         Construible(char,Edificio*);
 
+        //PRE: Recibe un Material 
+        //POS: Retorna -1(ERROR) porque no puede contruir un material en este casillero
+        int construirMaterial(Material*);
+
         //PRE:
         //POS: Construye el casillero construible asigna el tipo de edificio a su padre y pone en NULL al edificio
         Construible(char);

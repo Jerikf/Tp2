@@ -27,3 +27,7 @@ Edificio* Inaccesible::demolerEdificio(){
     cout << "\n\n\n ERROR-> NO SE PUEDE DEMOLER EL EDIFICIO PORQUE SOY UN : CASILLERO INACCESIBLE" << endl;
     return NULL;
 }
+
+int Inaccesible::construirMaterial(Material* material){
+    return ERROR;
+}

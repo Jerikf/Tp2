@@ -35,6 +35,10 @@ class Casillero
         virtual int construirEdificio(Edificio*)=0;
 
         //PRE:
+        //POS: CADA SubClase implementará segun sepa responder el mensaje
+        virtual int construirMaterial(Material*)=0;
+
+        //PRE:
         //POS: Cada subClase implementará según sepa responder el mensaje
         virtual Edificio* getEdificio()=0;
 

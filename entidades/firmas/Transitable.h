@@ -40,6 +40,10 @@ class Transitable : public Casillero
         //POS: Retorna ERROR(-1) mostrando que no puede construir el edificio
         int construirEdificio(Edificio*);
 
+        //PRE: Recibe un Material 
+        //POS: Retorna 0(EXITO) si el lugar está vacío y además contruye correctamente, caso contrario retorna -1(ERROR)
+        int construirMaterial(Material*);
+
         //PRE:
         //POS: Retorna NULL porque no sabe responder exactamente a este mensaje
         Edificio* getEdificio();

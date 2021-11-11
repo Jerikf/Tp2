@@ -2,6 +2,7 @@
 #include <iostream>
 
 const int ERROR = -1;
+const int EXITO = 0;
 
 
 Transitable::Transitable(){
@@ -53,4 +54,22 @@ Edificio* Transitable::getEdificio(){
 Edificio* Transitable::demolerEdificio(){
     cout << "\n\n\n ERROR-> NO SE PUEDE DEMOLER EL EDIFICIO PORQUE SOY UN : CASILLERO TRANSITABLE" << endl;
     return NULL;
+}
+
+int Transitable::construirMaterial(Material* material){
+    int estado = ERROR;
+
+    if(!this->material){
+        // Me genero una nueva instancia con la copia de los elementos del material pasado por parámetro
+        // TODO--> Se podía haber hecho con un constructor copia, lo intenté pero tuve problemas de memoria(en un futuro cambiarlo por constructor copia)
+        Material* materialConstruible = new Material(material->getNombre(), material->getCantidad());
+        this->material = materialConstruible;
+        estado = EXITO;
+
+        // TODO --> ESTO DEBERÍA DARLE RESPONSABILIDAD AL QUE LO PIDE, YA QUE PARA ESO SE DEVUELVE EM MENSAJE DE EXITO/ERROR
+        cout << "\n\n\n SE CONSTRUYÒ CORRECTAMENTE EL MATERIAL !!\n" << endl;
+
+    }else
+        cout << "\n\n\nERROR--> SOY UN CASILLERO TRANSITABLE PERO ME ENCUENTRO OCUPADO POR UN MATERIAL" << endl;
+    return estado;
 }

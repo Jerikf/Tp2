@@ -25,6 +25,10 @@ class Inaccesible : public Casillero
         //POS: Retorna -1(ERROR) porque no sabe responder a este mensaje
         int construirEdificio(Edificio*);
 
+        //PRE: Recibe un Material 
+        //POS: Retorna -1(ERROR) porque no puede contruir un material en este casillero
+        int construirMaterial(Material*);
+
         //PRE:
         //POS: Retorna NULL porque no sabe responder a este mensaje
         Edificio* getEdificio();
