@@ -123,7 +123,7 @@ int main(){
     //Construiré 1 edificios en coordenas correctas
 
     //Alcanza con construir 2 edificios y borrar 1 edificio ya que esto modifica las cantidades de los materiales y las ubicaciones, el mapa no cambia y los edificios tampoco
-    Coordenada coordenada1(7,7);
+    /*Coordenada coordenada1(7,7);
     Coordenada coordenada2(5,9);
     Coordenada coordenada3(1,8); // coordenada donde está una mina
 
@@ -133,6 +133,41 @@ int main(){
     juego.demolerEdificioPorCoordenada(coordenada3);
 
     juego.guardarSalir();
+    */
+
+
+   //---------------------------------PRUEBA DEL NÚMERO ALEATORIO----------------------------------------
+   juego.lluviaDeRecursos();
+    /*
+   Coordenada coordenada1(0,5);
+   Coordenada coordenada2(0,6);
+   Coordenada coordenada3(1,5);
+   Coordenada coordenada4(1,6);
+   Coordenada coordenada5(1,7);
+   Coordenada coordenada6(6,0);
+   Coordenada coordenada7(6,1);
+
+   juego.consultarCoordenada(coordenada1);
+   juego.consultarCoordenada(coordenada2);
+   juego.consultarCoordenada(coordenada3);
+   juego.consultarCoordenada(coordenada4);
+   juego.consultarCoordenada(coordenada5);
+   juego.consultarCoordenada(coordenada6);
+   juego.consultarCoordenada(coordenada7);
+
+   juego.lluviaDeRecursos();
+   juego.lluviaDeRecursos();
+
+   juego.lluviaDeRecursos();
+   juego.lluviaDeRecursos();
+   juego.lluviaDeRecursos();
+   juego.lluviaDeRecursos();
+
+   juego.lluviaDeRecursos();
+   juego.lluviaDeRecursos();*/
+
+
+   
 
 
 
