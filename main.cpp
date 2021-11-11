@@ -83,6 +83,7 @@ int main(){
     */
 
    //------------------------PRUEBAS PARA CONSULTAR COORDENADA-----------------------------
+   /*
     Coordenada coordenada1(100,2);
     Coordenada coordenada2(0,2);
     Coordenada coordenada3(0,5);
@@ -94,7 +95,23 @@ int main(){
     juego.consultarCoordenada(coordenada3); // CASILLERO TRANSITABLE VACÌO
     juego.consultarCoordenada(coordenada4); // CASILLERO INACCESIBLE VACÌO
     juego.consultarCoordenada(coordenada5); // CASILLERO CONSTRUIBLE CON UNA MINA
+    */
 
+    //---------------------------------PRUEBA PARA RECOLECTAR LOS RECURSOS PRODUCIDOS------------------------------------
+    juego.mostrarInventario(); // Me fijo como están mis materiales
+
+    //Construiré 1 edificios en coordenas correctas
+
+    Coordenada coordenada2(4,7);
+
+
+    juego.construirEdificioPorNombre("fabrica",coordenada2);
+
+    juego.recolectarRecursosProducidos(); //Debería recolectar de los 3 edificios que brinda mientras que mina se recolecta 2 veces
+
+    
+    
+    juego.mostrarInventario(); // Comparo si se recolectaron los materiales producidos
 
     return 0;
 }
