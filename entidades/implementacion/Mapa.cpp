@@ -2,18 +2,7 @@
 #include <iostream>
 
 #include "../../recursos/firmas/colors.h"
-/*
-const char PLATAN_ELECTRICA = 'P';
-const char OBELISCO = 'O';
-const char ASERRADERO = 'A';
-const char FABRICA = 'F';
-const char ESCUELA = 'E';
-const char MINA = 'M';*/
 
-/*
-const char PIEDRA = 'S';
-const char MADERA = 'W';
-const char METAL = 'I';*/
 
 const char TERRENO = 'T';
 const char CAMINO = 'C';
@@ -63,6 +52,8 @@ void Mapa::agregarCasillero(Casillero* casillero, Coordenada coordenada){
     }
 }
 
+//^ↀᴥↀ^ ---> (＾• ω •＾) ---> =ටᆼට=
+
 Casillero* Mapa::getCasillero(Coordenada coordenada){
     if(coordenada.getFila() >= this->cantFilas || coordenada.getColumna() >= this->cantColumnas)
         return NULL;
@@ -99,7 +90,7 @@ void Mapa::mostrar(){
                     edificio = this->casilleros[fila][columna]->getEdificio();
 
                     if(edificio){
-                        cout << BGND_GREEN_2 << TXT_DARK_YELLOW_3 << edificio->getAbreviaturaDeNombre() << END_COLOR;
+                        cout << BGND_GREEN_2 << TXT_DARK_RED_52 << edificio->getAbreviaturaDeNombre() << END_COLOR;
                     }else
                         cout << BGND_GREEN_2 << ' ' << END_COLOR;
                    
@@ -108,7 +99,7 @@ void Mapa::mostrar(){
                     material = this->casilleros[fila][columna]->getMaterial();
 
                     if(material){
-                        cout << BGND_DARK_GRAY_59 << TXT_DARK_YELLOW_3 << material->getAbreviaturaDeNombre() << END_COLOR;
+                        cout << BGND_DARK_GRAY_59 << TXT_DARK_RED_52 << material->getAbreviaturaDeNombre() << END_COLOR;
                     }else
                         cout << BGND_DARK_GRAY_59 << ' ' << END_COLOR;
                     

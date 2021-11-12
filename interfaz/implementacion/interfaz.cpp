@@ -12,6 +12,15 @@ const int RECOLECTAR_RECURSOS_PRODUCIDOS = 8;
 const int LLUVIA_DE_RECURSOS = 9;
 const int GUARDAR_SALIR = 10;
 
+
+#ifdef _WIN32
+    const char* CLEAR = "cls";
+#else
+
+    const char* CLEAR = "clear";
+
+#endif
+
 bool Interfaz::validarOpcion(int opcion){
     return (opcion >= 1 && opcion <= 10);
 }
@@ -51,6 +60,7 @@ void Interfaz::iniciar(){
 		switch (opcion){
 			case CONSTRUIR_EDIFICIO_POR_NOMBRE:
 
+				system(CLEAR);
                 cout << "\n\n\n";
 				cout << "		CONSTRUCCIÓN DEL EDIFICIO" << endl;
 				cout << "\nINGRESE EL NOMBRE DEL EDIFICIO PARA CONSTRUIRLO" << endl;
@@ -65,13 +75,14 @@ void Interfaz::iniciar(){
 
                 coordenada.setFila(fila);
 				coordenada.setColumna(columna);
-
+				system(CLEAR);
 				this->juego->construirEdificioPorNombre(nombre, coordenada);
 				break;
 
 			case LISTAR_LOS_EDIFICIOS_CONSTRUIDOS:
 
-				cout << "\n\n\n";
+				cout << "\n\n\n"; //en caso no funcione en windows el limpiar :v
+				system(CLEAR); 
 				this->juego->listarEdificiosConstruidos();
 				cout << "\n\n";
 				break;
@@ -79,12 +90,13 @@ void Interfaz::iniciar(){
 			case LISTAR_TODOS_LOS_EDIFICIOS:
 
                 cout << "\n\n\n";
-
+				system(CLEAR);
                 this->juego->listarTodosLosEdificios();
 				break;
 
 			case DEMOLER_EDIFICIO_POR_COORDENADA:
 
+				system(CLEAR);
                 cout << "\n\n\n";
 				cout << "DEMOLICIÓN DE UN EDIFICIO POR COORDENADA" << endl;
                 cout << "\nINGRESE LA FILA" << endl;
@@ -94,20 +106,21 @@ void Interfaz::iniciar(){
 
                 coordenada.setFila(fila);
 				coordenada.setColumna(columna);
-
+				system(CLEAR);
 				this->juego->demolerEdificioPorCoordenada(coordenada);
 				break;
 
 			case MOSTRAR_MAPA:
-            
 				cout << "\n\n\n";
+				system(CLEAR);
 				cout << "		SE MOSTRARÁ EL MAPA" << endl;
-				//TODO --> falta implementar el mostrar mapa adecuado
+				this->juego->mostrarMapa();
+
 				cout << "\n\n";
 				break;
 
 			case CONSULTAR_COORDENADA:
-
+				system(CLEAR);
 				cout << "\n\n\n";
 				cout << "CONSULTAR COORDENADA" << endl;
 				cout << "\nINGRESE LA FILA" << endl;
@@ -117,20 +130,21 @@ void Interfaz::iniciar(){
 
 				coordenada.setFila(fila);
 				coordenada.setColumna(columna);
-
+				system(CLEAR);
 				this->juego->consultarCoordenada(coordenada);
 				break;
 
 			case MOSTRAR_INVENTARIO:
-
-				cout << "\n\n\n";
-				cout << "MUESTRA DE INVENTARIO" << endl;
+				cout << "\n\n\n\n\n";
+				system(CLEAR);
+				cout << "		MUESTRA DE INVENTARIO" << endl;
 				this->juego->mostrarInventario();
 				break;
 
 			case RECOLECTAR_RECURSOS_PRODUCIDOS:
 
 				cout << "\n\n\n";
+				system(CLEAR);
 				cout << "RECOLECTOR DE RECURSOS PRODUCIDOS" << endl;
 				this->juego->recolectarRecursosProducidos();
 				break;
@@ -138,13 +152,15 @@ void Interfaz::iniciar(){
 			case LLUVIA_DE_RECURSOS:
 
 				cout << "\n\n\n";
-				cout << "LLUVIA DE RECURSOS" << endl;
-				//TODO --> falta construir dicho método en el juego
+				this->juego->lluviaDeRecursos();
+				system(CLEAR);
+				cout << "LLUVIA DE RECURSOS | SI HUBO ESPACIO EN LOS CAMINOS SE COMPLETÓ CORRECTAMENTE" << endl;
 				break;
 
 			case GUARDAR_SALIR:
 
 				cout << "\n\n\n";
+				system(CLEAR);
 				cout << "GUARDAR Y SALIR" << endl;
 				this->juego->guardarSalir();
 				salir = true;

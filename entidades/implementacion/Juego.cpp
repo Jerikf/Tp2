@@ -24,7 +24,7 @@ const char CAMINO = 'C';
 
 const int VACIO = 0;
 const int INICIO = 0;
-//const int EXITO = 0;
+
 const string PIEDRA = "piedra";
 const string MADERA = "madera";
 const string METAL = "metal";
@@ -95,7 +95,6 @@ Coordenada Juego::obtenerCoordenadaAleatoriaValida(){
     columna = recurso.obtenerNumAleatorio(INICIO, this->mapa->getCantColumnas());
     coordenada.setFila(fila);
     coordenada.setColumna(columna);
-    coordenada.mostrar(); // luego sacarlo solo se uso para la prueba
 
     return coordenada;
 
@@ -204,7 +203,7 @@ void Juego::listarEdificiosConstruidos(){
 void Juego::listarTodosLosEdificios(){
     Edificio* edificio = NULL;
     Vect<Coordenada>* coordenadasDelEdificioConstruido = NULL;
-    cout << "       lISTADO DE TODOS LOS EDIFICIOS" ;
+    cout << "       lISTADO DE TODOS LOS EDIFICIOS \n\n" ;
     for(int pos = 0; pos < this->edificios->obtenerCantidad(); pos++){
         edificio = this->edificios->obtenerDato(pos);
         coordenadasDelEdificioConstruido = this->obtenerCoordenadas(edificio->getNombre());

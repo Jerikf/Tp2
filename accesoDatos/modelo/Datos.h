@@ -31,8 +31,8 @@ class Datos
         string nombreArchivoMapa;
         string nombreArchivoUbicaciones;
 
-        //PRE:
-		//POS:
+        //PRE: Recibe 2 partes del archivo leído ---> 1ero: (valor,  2do: valor) 
+		//POS: Devuele la coordenada extraída de las 2 partes pasadas por parámetro
         Coordenada extraerCoordenada(string,string);
         
     public:

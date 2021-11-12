@@ -3,12 +3,18 @@
 
 #include "../../entidades/firmas/Juego.h"
 
+
 class Interfaz
 {
     private:
         Juego* juego;
 
+        //PRE: Recibe una opción del menu(tiene que ser un entero)
+        //POS: Valida la opción que esté en ese rango
         bool validarOpcion(int);
+
+        //PRE:
+        //POS: pide al usuario una opcion, retornará la opcion ya validada.
         int obtenerOpcion();
 
     public:

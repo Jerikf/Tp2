@@ -14,6 +14,14 @@
 #include "./interfaz/firma/Interfaz.h"
 #include <iostream>
 
+#ifdef _WIN32
+    const char* CLEAR_SCREEN = "cls";
+#else
+
+    const char* CLEAR_SCREEN = "clear";
+
+#endif
+
 int main(){
     //Defino las herramientas que utilizaré
     Datos* datos = new Datos("edificios.txt","materiales.txt","mapa.txt","ubicaciones.txt");
@@ -24,11 +32,14 @@ int main(){
 
     //Cargo los datos del archivo
     juego.inicializarCargadoDatos();
+    system(CLEAR_SCREEN);
 
     interfaz.iniciar();
   
 
 
-
     return 0;
 }
+
+
+//-------------------------  ^ↀᴥↀ^ ---> (＾• ω •＾) ---> =ටᆼට=   --------------------------------------
