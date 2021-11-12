@@ -1,29 +1,28 @@
 # Tp2
 
-------------------------------COMPILACIÓN------------------------------------
-g++ ./entidades/implementacion/* ./estructura/* ./accesoDatos/implementacion/* ./recursos/implementacion/* main.cpp -o tp -Werror -Wall -Wconversion
+##COMPILACIÓN
 
---------------------------------VALGRIND-----------------------------------
+g++ ./entidades/implementacion/* ./estructura/* ./accesoDatos/implementacion/* ./interfaz/implementacion/* ./recursos/implementacion/* main.cpp -o tp -Werror -Wall -Wconversion
+
+##VALGRIND
 valgrind --tool=memcheck --leak-check=yes --track-origins=yes ./tp
 
 
-
---------------------------------EJECUTABLE---------------------------------
+##EJECUTABLE
 ./tp
 
 
--------------------------------DATOS DEL ALUMNO---------------------------
-	-Erik FLores
-	-104478
+#DATOS DEL ALUMNO
+-Erik FLores
+-104478
 	
-------------------------------Datos curioso-----------------------------------
--->Se implementó con Vim y Visual studio code
----> ^ↀᴥↀ^ ---> (＾• ω •＾) ---> =ටᆼට=
+
+#DETALLE:
+1. Para el aspecto visual se probó en linux
+2. No pierde memoria
 
 
------DETALLE:
-.Falta hacer la interfaz pero se probó todo lo hecho hasta ahora
-.Falta hacer mostrar mapa, Recolectar recursos, lluvia de recursos y guarda-salir
-.Actualizaré el repo en el transcurso del día
-
+##DATOS CURIOSOS
+*Se implementó con Vim y Visual studio code
+*^ↀᴥↀ^ ---> (＾• ω •＾) ---> =ටᆼට=
 
